@@ -1,120 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
-
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+      {/* Sección 1 — fondo claro azul (zona Symptoms) */}
+      <section className="bg-bg-landing-symptoms text-text-primary p-xl">
+        <h2 className="text-heading-xl">Symptoms</h2>
+        <p className="text-body-lg text-text-secondary mt-md">
+          Fondo <code>bg-landing-symptoms</code> · texto secundario gris medio.
+        </p>
       </section>
 
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
+      {/* Sección 2 — fondo gris (zona Prevent) */}
+      <section className="bg-bg-landing-prevent text-text-primary p-xl">
+        <h2 className="text-heading-xl">Prevention</h2>
+        <p className="text-body-lg text-text-secondary mt-md">
+          Fondo <code>bg-landing-prevent</code> · igual paleta de texto.
+        </p>
       </section>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      {/* Sección 3 — fondo navy oscuro (zona Footer / Hero) */}
+      <section className="bg-bg-landing-footer text-neutral-0 p-xl">
+        <h1 className="text-display-xl">Covid Tracker</h1>
+        <p className="text-body-lg text-neutral-300 mt-md">
+          Si lees esto en Poppins sobre fondo navy, funciona.
+        </p>
+
+        <div className="mt-lg flex gap-md text-body-md">
+          <span className="text-status-cases">Casos</span>
+          <span className="text-status-active">Activos</span>
+          <span className="text-status-recovered">Recuperados</span>
+          <span className="text-status-critical">Críticos</span>
+        </div>
+
+        <div className="mt-xl bg-neutral-0 text-text-primary p-lg rounded-lg">
+          Tarjeta blanca con padding <code>lg</code> y radius <code>lg</code>.
+          Cambia entre 8px (móvil) y 12px (desktop).
+        </div>
+
+        <div className="mt-md flex gap-sm">
+          <span className="bg-status-cases-bg text-status-cases px-md py-sm rounded-md text-label-sm">
+            Cases pill
+          </span>
+          <span className="bg-status-active-bg text-status-active px-md py-sm rounded-md text-label-sm">
+            Active pill
+          </span>
+          <span className="bg-status-recovered-bg text-status-recovered px-md py-sm rounded-md text-label-sm">
+            Recovered pill
+          </span>
+        </div>
+      </section>
     </>
   )
 }
