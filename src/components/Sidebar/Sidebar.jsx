@@ -1,27 +1,16 @@
 import { useState } from 'react'
-import {
-  Activity,
-  PieChart,
-  Database,
-  LayoutGrid,
-  Folder,
-  Files,
-  TrendingUp,
-  Globe,
-  MessageSquare,
-  MoreHorizontal,
-} from 'lucide-react'
+import { Icon } from '@iconify/react'
 import './Sidebar.css'
 
 const navItems = [
-  { id: 'dashboard', label: 'Dashboard', Icon: PieChart, badge: 'orange' },
-  { id: 'reports', label: 'Reports', Icon: Database, badge: 'red' },
-  { id: 'apps', label: 'Apps', Icon: LayoutGrid },
-  { id: 'projects', label: 'Projects', Icon: Folder },
-  { id: 'files', label: 'Files', Icon: Files },
-  { id: 'analytics', label: 'Analytics', Icon: TrendingUp },
-  { id: 'world', label: 'World', Icon: Globe },
-  { id: 'messages', label: 'Messages', Icon: MessageSquare },
+  { id: 'dashboard', label: 'Dashboard', icon: 'mdi:chart-pie' },
+  { id: 'reports', label: 'Reports', icon: 'mdi:server' },
+  { id: 'apps', label: 'Apps', icon: 'mdi:view-grid' },
+  { id: 'projects', label: 'Projects', icon: 'mdi:folder-outline' },
+  { id: 'files', label: 'Files', icon: 'mdi:content-copy' },
+  { id: 'analytics', label: 'Analytics', icon: 'mdi:trending-up' },
+  { id: 'world', label: 'World', icon: 'mdi:earth' },
+  { id: 'messages', label: 'Messages', icon: 'mdi:message-outline' },
 ]
 
 function Sidebar() {
@@ -30,12 +19,12 @@ function Sidebar() {
   return (
     <aside className="sidebar" aria-label="Main navigation">
       <div className="sidebar__logo" aria-label="Covid Tracker">
-        <Activity size={24} strokeWidth={2.2} />
+        <Icon icon="mdi:virus" width={26} height={26} />
       </div>
 
       <nav className="sidebar__nav">
         <ul>
-          {navItems.map(({ id, label, Icon, badge }) => (
+          {navItems.map(({ id, label, icon }) => (
             <li key={id}>
               <button
                 type="button"
@@ -45,10 +34,7 @@ function Sidebar() {
                 aria-current={active === id ? 'page' : undefined}
                 title={label}
               >
-                <Icon size={22} strokeWidth={1.8} />
-                {badge && (
-                  <span className={`sidebar__badge sidebar__badge--${badge}`} />
-                )}
+                <Icon icon={icon} width={22} height={22} />
               </button>
             </li>
           ))}
@@ -56,7 +42,7 @@ function Sidebar() {
       </nav>
 
       <button type="button" className="sidebar__more" aria-label="More options" title="More">
-        <MoreHorizontal size={20} />
+        <Icon icon="mdi:dots-horizontal" width={20} height={20} />
       </button>
     </aside>
   )

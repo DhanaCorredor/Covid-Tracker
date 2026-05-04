@@ -4,8 +4,6 @@
   --sidebar-active-bg: #4f46e5;
   --sidebar-active-icon: #ffffff;
   --sidebar-hover-bg: rgba(79, 70, 229, 0.08);
-  --sidebar-badge-orange: #ff8a00;
-  --sidebar-badge-red: #ef4444;
 
   width: 72px;
   min-height: 100svh;
@@ -30,8 +28,7 @@
 }
 
 .sidebar__logo svg {
-  width: 26px;
-  height: 26px;
+  display: block;
 }
 
 .sidebar__nav {
@@ -84,25 +81,6 @@
 .sidebar__item.is-active {
   background: var(--sidebar-active-bg);
   color: var(--sidebar-active-icon);
-}
-
-.sidebar__badge {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  border: 2px solid var(--sidebar-bg);
-  box-sizing: content-box;
-}
-
-.sidebar__badge--orange {
-  background: var(--sidebar-badge-orange);
-}
-
-.sidebar__badge--red {
-  background: var(--sidebar-badge-red);
 }
 
 .sidebar__more {
