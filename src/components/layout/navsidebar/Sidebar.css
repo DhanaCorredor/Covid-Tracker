@@ -1,6 +1,6 @@
 .sidebar {
   --sidebar-bg: #f5f6fb;
-  --sidebar-icon: #1a1f6b;
+  --sidebar-icon: #1D109E;
   --sidebar-active-bg: #4f46e5;
   --sidebar-active-icon: #ffffff;
   --sidebar-hover-bg: rgba(79, 70, 229, 0.08);
@@ -12,23 +12,23 @@
   flex-direction: column;
   align-items: center;
   padding: 18px 0;
-  gap: 18px;
+  gap: 6px;
   box-sizing: border-box;
 }
 
 .sidebar__logo {
   width: 44px;
   height: 44px;
-  border-radius: 50%;
-  background: var(--sidebar-active-bg);
-  color: #ffffff;
   display: grid;
   place-items: center;
-  margin-bottom: 6px;
 }
 
-.sidebar__logo svg {
+.sidebar__logo svg,
+.sidebar__logo img {
   display: block;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 
 .sidebar__nav {

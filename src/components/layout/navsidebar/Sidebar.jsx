@@ -19,7 +19,7 @@ function Sidebar() {
   return (
     <aside className="sidebar" aria-label="Main navigation">
       <div className="sidebar__logo" aria-label="Covid Tracker">
-        <Icon icon="mdi:virus" width={26} height={26} />
+        <img src="/images/coronavirus.png" alt="Covid Tracker" />
       </div>
 
       <nav className="sidebar__nav">
