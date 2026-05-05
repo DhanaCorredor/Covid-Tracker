@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { parseApiError } from '../utils/errors'
 
 // Hook genérico para cualquier llamada a la API.
 // asyncFn: función que recibe un AbortSignal y devuelve una promesa con datos.
@@ -24,13 +25,7 @@ export function useApi(asyncFn, deps = [], { skip = false, initialData = null } 
         setData(result)
       } catch (err) {
         if (axios.isCancel(err)) return // request cancelado, ignorar
-        if (err.response) {
-          setError(`Error del servidor: ${err.response.status}`)
-        } else if (err.request) {
-          setError('Sin conexión: no se pudo contactar con el servidor')
-        } else {
-          setError(err.message || 'Error desconocido')
-        }
+        setError(parseApiError(err))
       } finally {
         // si fue cancelado no tocamos el estado: el componente ya no lo necesita
         if (!controller.signal.aborted) setLoading(false)
