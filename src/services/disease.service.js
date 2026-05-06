@@ -26,11 +26,3 @@ export async function getHistoricalData(country, days = 30, { signal } = {}) {
   })
   return data
 }
-
-export async function getHistoricalAll(days = 30, { signal } = {}) {
-  const { data } = await httpClient.get(ENDPOINTS.HISTORICAL_ALL, {
-    params: { lastdays: days },
-    signal,
-  })
-  return data
-}

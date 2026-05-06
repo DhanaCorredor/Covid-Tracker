@@ -3,5 +3,4 @@ export const ENDPOINTS = {
   COUNTRIES: '/countries',
   COUNTRY: (name) => `/countries/${name}`,
   HISTORICAL: (name) => `/historical/${name}`,
-  HISTORICAL_ALL: '/historical/all',
 }
