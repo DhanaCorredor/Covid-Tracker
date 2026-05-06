@@ -1,32 +1,28 @@
 import React from "react";
 
 
-export const StatCard = ({ title, value, change, color, isActive }) => {
+export const StatCard = ({ title, value, change, color }) => {
+  const styles = {
+    red: "bg-red-50 text-red-500",
+    orange: "bg-orange-50 text-orange-500",
+    green: "bg-green-50 text-green-600 border border-green-500",
+    blue: "bg-blue-50 text-blue-600",
+  };
 
-    return (
-
-    <article>
-      <header>
-        <h2 className="text-xl font-bold text-slate-800 ">
-          {title}
-        </h2>
-      </header>
-
-      <div className="flex items-center gap-4">
-        {change !== undefined && (
-          <span className="bg-white px-2 py-1 rounded text-xs font-semibold text-slate-400 border border-slate-100">
-            +{change.toLocaleString()}
+  return (
+    <div className={`rounded-md p-3 flex justify-between  ${styles[color]} mb-4`}>
+      <div>
+        <p className="text-heading-sm--font-weight: 600">{title}</p>
+        {change && (
+          <span className="text-xs bg-white px-2 py-1 rounded-md ml-1 shadow">
+            +{change}
           </span>
         )}
-
-        <data 
-          value={value} 
-          className="text-3xl font-black" 
-        >
-          {value.toLocaleString()}
-        </data>
       </div>
-    </article>
+
+      <h2 className="text-2xl font-bold">
+        {value}
+      </h2>
+    </div>
   );
 };
-

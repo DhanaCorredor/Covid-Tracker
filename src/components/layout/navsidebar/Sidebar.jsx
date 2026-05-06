@@ -13,7 +13,7 @@ const navItems = [
   { id: 'messages', label: 'Messages', icon: 'mdi:message-outline' },
 ]
 
-function Sidebar() {
+export function Sidebar() {
   const [active, setActive] = useState('apps')
 
   return (
@@ -48,4 +48,4 @@ function Sidebar() {
   )
 }
 
-export default Sidebar
+
