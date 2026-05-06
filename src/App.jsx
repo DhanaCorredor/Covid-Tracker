@@ -1,13 +1,11 @@
-import Sidebar from './components/layout/navsidebar/Sidebar'
-import './App.css'
+import { Router } from "./Router";
 
 function App() {
   return (
-    <div className="app-layout">
-      <Sidebar />
-      <main className="app-main"></main>
-    </div>
-  )
+    <>
+     <Router/>
+    </>
+  );
 }
 
-export default App
+export default App;
