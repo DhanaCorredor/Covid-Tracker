@@ -1,14 +1,15 @@
 import { Outlet } from "react-router-dom";
 import { ErrorBoundary } from "../components/common/ErrorBoundary";
-import Sidebar from "../components/layout/navsidebar/Sidebar";
+import {Sidebar} from "../components/layout/navsidebar/Sidebar";
+import { Dashboard } from "../components/layout/dataSidebar/Dashboard";
 
 const DashboardLayout = () => {
   return (
     <ErrorBoundary>
       <div className="flex">
-        <div>
+        <div className="flex">
           <Sidebar />
-          {/* <DataSidebar/> */}
+          <Dashboard/>
         </div>
         <main>
           <Outlet />
