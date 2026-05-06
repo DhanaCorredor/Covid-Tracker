@@ -32,6 +32,7 @@
   --color-status-recovered:    #22C55E; /* verde principal */
   --color-status-recovered-bg: #DCFCE7;
   --color-status-critical:     #3B82F6; /* azul */
+  --color-status-death:        #B70200; /* rojo oscuro */
 
   --color-text-primary:   #0F172A; /* neutral-900 */
   --color-text-secondary: #64748B; /* neutral-500 */
