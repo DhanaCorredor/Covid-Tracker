@@ -2,6 +2,7 @@ import React from "react";
 import { StatCard } from "./StatCard";
 
 export const Dashboard = () => {
+  
   return (
     <div className="p-5">
       <h1 className="text-2xl font-black text-slate-800 mb-5">COVID-19 Tracker</h1>
