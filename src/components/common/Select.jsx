@@ -5,7 +5,7 @@ const normalizeOption = (opt) =>
     ? opt
     : { value: opt, label: String(opt) }
 
-export const Select = ({ value, onChange, options, ariaLabel }) => {
+export const Select = ({ value, onChange, options, ariaLabel, className = '' }) => {
   const normalized = options.map(normalizeOption)
 
   const handleChange = (e) => {
@@ -14,12 +14,12 @@ export const Select = ({ value, onChange, options, ariaLabel }) => {
   }
 
   return (
-    <div className="relative inline-block">
+    <div className={`relative inline-block ${className}`}>
       <select
         value={value}
         onChange={handleChange}
         aria-label={ariaLabel}
-        className="appearance-none bg-white border border-border-default rounded-md text-body-md text-text-primary pl-md pr-2xl py-sm cursor-pointer focus:outline-none"
+        className="w-full appearance-none bg-white border border-border-default rounded-md text-body-md text-text-primary pl-md pr-2xl py-sm cursor-pointer focus:outline-none"
       >
         {normalized.map(({ value: v, label }) => (
           <option key={String(v)} value={String(v)}>

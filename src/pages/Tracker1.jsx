@@ -35,14 +35,15 @@ export const Tracker1 = () => {
 
   return (
     <div>
-      <div className="flex justify-between items-center border-b border-neutral-200 pb-lg">
+      <div className="flex justify-between items-center border-b border-neutral-200 pb-md">
         <Select
           value={country}
           onChange={setCountry}
           options={countryOptions}
           ariaLabel="Country"
+          className="max-w-60"
         />
-        <p className="text-body-md text-text-secondary">
+        <p className="text-label-md">
           Updated: {formatDate(countryData?.updated)}
         </p>
       </div>
