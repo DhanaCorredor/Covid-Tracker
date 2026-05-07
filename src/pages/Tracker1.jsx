@@ -24,11 +24,11 @@ export const Tracker1 = () => {
   return (
     <div>
       <div className="border-b border-neutral-200 pb-lg">
-        <h1 className="text-heading-lg">Tracker 1 filtro y fecha</h1>
+        <h1 className="text-heading-md">Tracker 1 filtro y fecha</h1>
       </div>
 
-      <div className="grid grid-cols-2 gap-xl my-lg">
-        <div className="grid grid-cols-2 gap-xl">
+      <div className="flex gap-xl my-lg">
+        <div className="grid grid-cols-2 gap-lg">
           {DASHBOARD_METRICS.map(({ key, title, variant }) => (
             <MetricCard
               key={key}

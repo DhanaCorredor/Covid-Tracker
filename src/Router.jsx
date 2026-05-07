@@ -3,7 +3,6 @@ import { ApiTest } from "./components/common/ApiTest";
 import { DashboardLayout } from "./pages/DashboardLayout";
 import { Tracker1 } from "./pages/Tracker1";
 
-
 const Placeholder = ({ name }) => <h1 className="p-4">{name}</h1>;
 
 export const Router = () => {
