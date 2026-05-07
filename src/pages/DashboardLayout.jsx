@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { ErrorBoundary } from "../components/common/ErrorBoundary";
-import Sidebar from "../components/layout/navsidebar/Sidebar";
+import Sidebar from "../components/layout/Sidebar";
 
 const DashboardLayout = () => {
   return (
