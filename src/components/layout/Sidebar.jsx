@@ -8,7 +8,7 @@ const itemBase =
 const itemClass = ({ isActive }) =>
   `${itemBase} ${isActive ? 'bg-purple-500 text-white' : 'bg-transparent text-purple-700 hover:bg-purple-50'}`
 
-function Sidebar() {
+export function Sidebar () {
   return (
     <aside
       aria-label="Main navigation"
@@ -41,5 +41,3 @@ function Sidebar() {
     </aside>
   )
 }
-
-export default Sidebar

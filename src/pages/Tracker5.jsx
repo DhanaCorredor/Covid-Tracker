@@ -89,7 +89,7 @@ function CountryChart({ country, days = 30 }) {
   )
 }
 
-export default function Tracker5() {
+export function Tracker5() {
   return (
     <section className="w-full p-4">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
