@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { ApiTest } from "./components/common/ApiTest";
 import { DashboardLayout } from "./pages/DashboardLayout";
 import { Tracker1 } from "./pages/Tracker1";
+import { Tracker5 } from "./pages/Tracker5";
 
 
 const Placeholder = ({ name }) => <h1 className="p-4">{name}</h1>;
@@ -16,7 +17,7 @@ export const Router = () => {
         <Route path="apps"      element={<Placeholder name="cambiamos" />} />       {/* → <AppsPage /> */}
         <Route path="projects"  element={<Placeholder name="estas" />} />   {/* → <ProjectsPage /> */}
         <Route path="files"     element={<Placeholder name="vistas" />} />      {/* → <FilesPage /> */}
-        <Route path="analytics" element={<Placeholder name="por las" />} />  {/* → <AnalyticsPage /> */}
+        <Route path="analytics" element={<Tracker5 />} />  {/* → <AnalyticsPage /> */}
         <Route path="world"     element={<Placeholder name="que van" />} />      {/* → <WorldPage /> */}
         <Route path="messages"  element={<Placeholder name="en el proyecto" />} />   {/* → <MessagesPage /> */}
       </Route>
