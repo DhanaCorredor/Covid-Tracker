@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { MetricCard } from "../components/common/MetricCard";
 import { MetricCardAll } from "../components/common/MetricCardAll";
+import { Select } from "../components/common/Select";
 import { useCountry } from "../hooks/useCountry";
+import { useCountries } from "../hooks/useCountries";
 import { useGlobalTotals } from "../hooks/useGlobalTotals";
 import {
   DASHBOARD_METRICS,
   GLOBAL_METRICS,
 } from "../constants/dashboardMetrics";
+import { formatDate } from "../utils/format";
 
 export const Tracker1 = () => {
-  const [country] = useState("Colombia");
+  const [country, setCountry] = useState("Colombia");
   const {
     data: countryData,
     loading: loadingCountry,
@@ -20,6 +23,11 @@ export const Tracker1 = () => {
     loading: loadingGlobal,
     error: errorGlobal,
   } = useGlobalTotals();
+  const { data: countries } = useCountries();
+
+  const countryOptions = (countries ?? [])
+    .map((c) => ({ value: c.country, label: c.country }))
+    .sort((a, b) => a.label.localeCompare(b.label));
 
   if (errorCountry) {
     return <p className="text-status-cases">{errorCountry}</p>;
@@ -27,8 +35,16 @@ export const Tracker1 = () => {
 
   return (
     <div>
-      <div className="border-b border-neutral-200 pb-lg">
-        <h1 className="text-heading-md">Tracker 1 filtro y fecha</h1>
+      <div className="flex justify-between items-center border-b border-neutral-200 pb-lg">
+        <Select
+          value={country}
+          onChange={setCountry}
+          options={countryOptions}
+          ariaLabel="Country"
+        />
+        <p className="text-body-md text-text-secondary">
+          Updated: {formatDate(countryData?.updated)}
+        </p>
       </div>
 
       <div className="flex gap-xl mt-lg">
