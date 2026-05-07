@@ -6,8 +6,9 @@ export const DashboardLayout = () => {
   return (
     <ErrorBoundary>
       <div className="flex">
-        <div>
+        <div className="flex">
           <Sidebar />
+          <div className="bg-bg-landing-footer w-80"></div>
           {/* <DataSidebar/> */}
         </div>
         <main className="flex-1 p-lg">
