@@ -10,15 +10,19 @@ import {
 
 export const Tracker1 = () => {
   const [country] = useState("Colombia");
-  const { data, loading, error } = useCountry(country);
+  const {
+    data: countryData,
+    loading: loadingCountry,
+    error: errorCountry,
+  } = useCountry(country);
   const {
     data: globalData,
     loading: loadingGlobal,
     error: errorGlobal,
   } = useGlobalTotals();
 
-  if (error) {
-    return <p className="text-status-cases">{error}</p>;
+  if (errorCountry) {
+    return <p className="text-status-cases">{errorCountry}</p>;
   }
 
   return (
@@ -27,13 +31,13 @@ export const Tracker1 = () => {
         <h1 className="text-heading-md">Tracker 1 filtro y fecha</h1>
       </div>
 
-      <div className="flex gap-xl my-lg">
+      <div className="flex gap-xl mt-lg">
         <div className="grid grid-cols-2 gap-lg">
           {DASHBOARD_METRICS.map(({ key, title, variant }) => (
             <MetricCard
               key={key}
               title={title}
-              value={loading ? "" : data?.[key]}
+              value={loadingCountry ? "" : countryData?.[key]}
               variant={variant}
             />
           ))}
@@ -44,14 +48,12 @@ export const Tracker1 = () => {
       {errorGlobal ? (
         <p className="text-status-cases">{errorGlobal}</p>
       ) : (
-        <div className="grid grid-cols-5 gap-md">
+        <div className="grid grid-cols-5 gap-0.5 mt-xl">
           {GLOBAL_METRICS.map(({ key, title, variant, staticValue }) => (
             <MetricCardAll
               key={key}
               title={title}
-              value={
-                staticValue ?? (loadingGlobal ? "" : globalData?.[key])
-              }
+              value={staticValue ?? (loadingGlobal ? "" : globalData?.[key])}
               variant={variant}
             />
           ))}
