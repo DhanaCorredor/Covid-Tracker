@@ -11,8 +11,8 @@ export const Router = () => {
     <Routes>
       <Route path="/dashboard" element={<DashboardLayout />}>
         {/* Aqui las reemplazo por las páginas reales :D */}
-        <Route index            element={<Placeholder name="Holi" />} />  {/* → <DashboardPage /> */}
-        <Route path="reports"   element={<Placeholder name="Luego" />} />    {/* → <ReportsPage /> */}
+        <Route index            element={<Tracker1 />} />  {/* → <DashboardPage /> */}
+        <Route path="reports"   element={<Tracker1 />} />    {/* → <ReportsPage /> */}
         <Route path="apps"      element={<Placeholder name="cambiamos" />} />       {/* → <AppsPage /> */}
         <Route path="projects"  element={<Placeholder name="estas" />} />   {/* → <ProjectsPage /> */}
         <Route path="files"     element={<Placeholder name="vistas" />} />      {/* → <FilesPage /> */}

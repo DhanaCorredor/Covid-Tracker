@@ -14,7 +14,7 @@ export const Tracker1 = () => {
   return (
     <div>
       <h1 className="text-heading-xl">Tracker 1</h1>
-      <div className="grid grid-cols-2 gap-lg mt-lg">
+      <div className="grid grid-cols-2 gap-xl mt-lg">
         {DASHBOARD_METRICS.map(({ key, title, variant }) => (
           <MetricCard
             key={key}

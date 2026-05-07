@@ -6,3 +6,30 @@ export const DASHBOARD_METRICS = [
   { key: 'todayCases', title: 'New Cases', variant: 'active' },
   { key: 'todayDeaths', title: 'New Deaths', variant: 'deaths' },
 ]
+
+export const METRIC_VARIANTS = {
+  cases: {
+    colorClass: 'text-status-death-cases',
+    iconSrc: '/images/covid-defult.svg',
+  },
+  deaths: {
+    colorClass: 'text-status-cases',
+    iconSrc: '/images/covid-red.svg',
+  },
+  recovered: {
+    colorClass: 'text-status-recovered',
+    iconSrc: '/images/covid-green.svg',
+  },
+  active: {
+    colorClass: 'text-total-active',
+    iconSrc: '/images/covid-blue.svg',
+  },
+  critical: {
+    colorClass: 'text-status-active',
+    iconSrc: '/images/covid-orange.svg',
+  },
+  default: {
+    colorClass: 'text-status-death',
+    iconSrc: '/images/covid-redark.svg',
+  },
+}
