@@ -12,7 +12,7 @@ function Sidebar() {
   return (
     <aside
       aria-label="Main navigation"
-      className="flex w-[72px] min-h-[100svh] flex-col items-center gap-1.5 bg-neutral-100 py-[18px] box-border"
+      className="flex w-[80px] min-h-[100svh] flex-col items-center gap-1.5 bg-neutral-100 py-[18px] box-border"
     >
       <Link to="/dashboard" aria-label="Covid Tracker — go to dashboard" className="grid h-11 w-11 place-items-center">
         <img src="/images/coronavirus.png" alt="Covid Tracker" className="block h-8 w-8 object-contain" />
