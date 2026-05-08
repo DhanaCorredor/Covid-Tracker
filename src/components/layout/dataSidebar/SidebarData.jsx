@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+
 import { StatCard } from "./StatCard";
 import { CountryRow } from "./CountryRow"
 import { stats } from "../../../constants/SidebarData";
 import { useGlobalTotals } from "../../../hooks/useGlobalTotals";
 import { useCountries } from "../../../hooks/useCountries";
-import './sidebarDta.css'
 
 
 
