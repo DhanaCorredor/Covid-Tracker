@@ -1,8 +1,7 @@
-  export const Faqs = () => {
-      return (
-  <>
-
-    <div class="flex flex-col items-center rounded-2xl">
+import React from 'react'
+export const Header = () => {
+    return (
+<div class="flex flex-col items-center rounded-2xl">
   <div>
     <img class="size-48 shadow-xl" alt="" src="/img/cover.png" />
     --color-bg-dashboard: #F8FAFC;
@@ -32,4 +31,8 @@
       <button class="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"> </button>
       Total Deaths: {5839859}
     </div>
-</>
+    </div>
+    )
+}
+
+  

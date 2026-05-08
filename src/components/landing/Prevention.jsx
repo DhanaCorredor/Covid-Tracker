@@ -3,7 +3,7 @@ import React from 'react';
 export default function Symptoms() {
   return 
 
-<div class="flex flex-col items-center rounded-2xl">
+<div class="flex flex-col items-center rounded-2xl"> 
   <div>
     <h1> Prevent </h1>
     --color-bg-landing-symptoms:   #F0F8FF; 
@@ -38,6 +38,7 @@ export default function Symptoms() {
    <div>
      <img class="pulmons" alt="" src="/public/images/carousel-02.png" />
       <h2> Wear a Facemask </h2>
-      <p> Our comprehensive Online Marketing strategy will boast your website trafuc hence monthly sales.</p>
+      <p> Our comprehensive Online Marketing strategy will boast your website trafuc hence monthly sales.</p> 
     </div>
-    
+    </div>
+}

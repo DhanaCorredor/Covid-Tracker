@@ -1,9 +1,7 @@
- import React from 'react';
-
-export default function Symptoms() {
-  return (
-
- <div class="flex flex-col items-center rounded-2xl">
+import React from 'react'
+function Symptoms() {
+    return (
+    <div class="flex flex-col items-center rounded-2xl">
   <div>
     <h1> Symptom </h1>
     --color-bg-landing-symptoms:   #F0F8FF; 
@@ -25,4 +23,10 @@ export default function Symptoms() {
     <h2> Short throat </h2>
     <p> Older people, and those with understying medical problems like high blood pressure, heart and lung problems, diabetes, or cancer.</p>
    </div>
-   
+   </div>        
+    )
+}
+
+
+
+ 
