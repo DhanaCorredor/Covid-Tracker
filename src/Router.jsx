@@ -2,6 +2,10 @@ import { Route, Routes } from "react-router-dom";
 import { ApiTest } from "./components/common/ApiTest";
 import { DashboardLayout } from "./pages/DashboardLayout";
 import { Tracker1 } from "./pages/Tracker1";
+<<<<<<< HEAD
+
+=======
+>>>>>>> 40784e514065816877ea5fc4332eafc7acc27f95
 
 const Placeholder = ({ name }) => <h1 className="p-4">{name}</h1>;
 
