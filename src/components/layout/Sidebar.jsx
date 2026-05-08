@@ -8,11 +8,7 @@ const itemBase =
 const itemClass = ({ isActive }) =>
   `${itemBase} ${isActive ? 'bg-purple-500 text-white' : 'bg-transparent text-purple-700 hover:bg-purple-50'}`
 
-<<<<<<< HEAD
 export const Sidebar = () => {
-=======
-export function Sidebar() {
->>>>>>> 65e9175a907e4ff5e0c7b5894441c9e992daef88
   return (
     <aside
       aria-label="Main navigation"
@@ -45,7 +41,3 @@ export function Sidebar() {
     </aside>
   )
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 65e9175a907e4ff5e0c7b5894441c9e992daef88
