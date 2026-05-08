@@ -1,5 +1,6 @@
 @import "./styles/variables.css";
 @import "tailwindcss";
+@import "./styles/animations.css";
 
 /* ============ OVERRIDES DESKTOP (≥ 1024px) ============ */
 @media (min-width: 64rem) {
