@@ -30,7 +30,7 @@ function buildSeries(timeline) {
   }))
 }
 
-function CountryChart({ country, days = 30 }) {
+function CountryChart({ country, days = 1400 }) {
   const { data, loading, error } = useHistoricalData(country, days)
   const series = buildSeries(data?.timeline)
 
