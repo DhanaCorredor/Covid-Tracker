@@ -1,5 +1,6 @@
 @import "./styles/variables.css";
 @import "tailwindcss";
+@import "./styles/animations.css";
 
 /* ============ OVERRIDES DESKTOP (≥ 1024px) ============ */
 @media (min-width: 64rem) {
@@ -7,7 +8,7 @@
     /* Font sizes desktop */
     --text-display-xl: 3.5rem;   /* 56px */
     --text-display-lg: 2.5rem;   /* 40px */
-    --text-heading-xl: 2rem;     /* 32px */
+    --text-heading-xl: 1.875rem;     /* 30px */
     --text-heading-lg: 1.5rem;   /* 24px */
     --text-heading-md: 1.25rem;  /* 20px */
     --text-heading-sm: 1.125rem; /* 18px */
