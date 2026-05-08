@@ -8,7 +8,7 @@ export const DashboardLayout = () => {
       <div className="flex">
         <div className="flex">
           <Sidebar />
-          {/* <DataSidebar/> */}
+          <SidebarData/>
         </div>
         <main className="flex-1 p-lg">
           <Outlet />

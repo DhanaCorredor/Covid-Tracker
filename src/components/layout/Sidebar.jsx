@@ -8,11 +8,15 @@ const itemBase =
 const itemClass = ({ isActive }) =>
   `${itemBase} ${isActive ? 'bg-purple-500 text-white' : 'bg-transparent text-purple-700 hover:bg-purple-50'}`
 
+<<<<<<< HEAD
 export function Sidebar () {
+=======
+export function Sidebar() {
+>>>>>>> 65e9175a907e4ff5e0c7b5894441c9e992daef88
   return (
     <aside
       aria-label="Main navigation"
-      className="flex w-[80px] min-h-[100svh] flex-col items-center gap-1.5 bg-neutral-100 py-[18px] box-border"
+      className="flex w-20 min-h-svh flex-col items-center gap-1.5 bg-neutral-100 py-4.5 box-border"
     >
       <Link to="/dashboard" aria-label="Covid Tracker — go to dashboard" className="grid h-11 w-11 place-items-center">
         <img src="/images/coronavirus.png" alt="Covid Tracker" className="block h-8 w-8 object-contain" />
@@ -41,3 +45,7 @@ export function Sidebar () {
     </aside>
   )
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 65e9175a907e4ff5e0c7b5894441c9e992daef88
