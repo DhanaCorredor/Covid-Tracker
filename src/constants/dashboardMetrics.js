@@ -3,8 +3,16 @@ export const DASHBOARD_METRICS = [
   { key: 'deaths', title: 'Total Deaths', variant: 'deaths' },
   { key: 'recovered', title: 'Total Recovered', variant: 'recovered' },
   { key: 'active', title: 'Total Active', variant: 'active' },
-  { key: 'todayCases', title: 'New Cases', variant: 'active' },
+  { key: 'todayCases', title: 'New Cases', variant: 'critical' },
   { key: 'todayDeaths', title: 'New Deaths', variant: 'deaths' },
+]
+
+export const GLOBAL_METRICS = [
+  { key: 'cases', title: 'Total Confirmed', variant: 'cases' },
+  { key: 'recovered', title: 'Total Recovered', variant: 'recovered' },
+  { key: 'deaths', title: 'Total Deaths', variant: 'deaths' },
+  { key: 'todayDeaths', title: 'New Deaths', variant: 'deaths' },
+  { key: 'helpline', title: 'Help Line No.', variant: 'helpline', staticValue: 198 },
 ]
 
 export const METRIC_VARIANTS = {
@@ -27,6 +35,10 @@ export const METRIC_VARIANTS = {
   critical: {
     colorClass: 'text-status-active',
     iconSrc: '/images/covid-orange.svg',
+  },
+  helpline: {
+    colorClass: 'text-status-critical',
+    iconSrc: '/images/telephone.svg',
   },
   default: {
     colorClass: 'text-status-death',
