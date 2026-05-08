@@ -1,29 +1,81 @@
-import { useState } from 'react'
-import { MetricCard } from '../components/common/MetricCard'
-import { useCountry } from '../hooks/useCountry'
-import { DASHBOARD_METRICS } from '../constants/dashboardMetrics'
+import { useState } from "react";
+import { MetricCard } from "../components/common/MetricCard";
+import { MetricCardAll } from "../components/common/MetricCardAll";
+import { Select } from "../components/common/Select";
+import { useCountry } from "../hooks/useCountry";
+import { useCountries } from "../hooks/useCountries";
+import { useGlobalTotals } from "../hooks/useGlobalTotals";
+import {
+  DASHBOARD_METRICS,
+  GLOBAL_METRICS,
+} from "../constants/dashboardMetrics";
+import { formatDate } from "../utils/format";
 
 export const Tracker1 = () => {
-  const [country] = useState('Colombia')
-  const { data, loading, error } = useCountry(country)
+  const [country, setCountry] = useState("Colombia");
+  const {
+    data: countryData,
+    loading: loadingCountry,
+    error: errorCountry,
+  } = useCountry(country);
+  const {
+    data: globalData,
+    loading: loadingGlobal,
+    error: errorGlobal,
+  } = useGlobalTotals();
+  const { data: countries } = useCountries();
 
-  if (error) {
-    return <p className="text-status-cases">{error}</p>
+  const countryOptions = (countries ?? [])
+    .map((c) => ({ value: c.country, label: c.country }))
+    .sort((a, b) => a.label.localeCompare(b.label));
+
+  if (errorCountry) {
+    return <p className="text-status-cases">{errorCountry}</p>;
   }
 
   return (
     <div>
-      <h1 className="text-heading-xl">Tracker 1</h1>
-      <div className="grid grid-cols-2 gap-xl mt-lg">
-        {DASHBOARD_METRICS.map(({ key, title, variant }) => (
-          <MetricCard
-            key={key}
-            title={title}
-            value={loading ? '' : data?.[key]}
-            variant={variant}
-          />
-        ))}
+      <div className="flex justify-between items-center border-b border-neutral-200 pb-md">
+        <Select
+          value={country}
+          onChange={setCountry}
+          options={countryOptions}
+          ariaLabel="Country"
+          className="max-w-60"
+        />
+        <p className="text-label-md">
+          Updated: {formatDate(countryData?.updated)}
+        </p>
       </div>
+
+      <div className="flex gap-xl mt-lg">
+        <div className="grid grid-cols-2 gap-lg">
+          {DASHBOARD_METRICS.map(({ key, title, variant }) => (
+            <MetricCard
+              key={key}
+              title={title}
+              value={loadingCountry ? "" : countryData?.[key]}
+              variant={variant}
+            />
+          ))}
+        </div>
+        <div>MAPA</div>
+      </div>
+
+      {errorGlobal ? (
+        <p className="text-status-cases">{errorGlobal}</p>
+      ) : (
+        <div className="grid grid-cols-5 gap-0.5 mt-xl">
+          {GLOBAL_METRICS.map(({ key, title, variant, staticValue }) => (
+            <MetricCardAll
+              key={key}
+              title={title}
+              value={staticValue ?? (loadingGlobal ? "" : globalData?.[key])}
+              variant={variant}
+            />
+          ))}
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
