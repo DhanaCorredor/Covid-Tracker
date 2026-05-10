@@ -21,7 +21,6 @@ export const Modal = ({ isOpen, onClose, title, children }) => {
 
   if (!isOpen) return null
 
-  // TODO: focus trap
   const handleBackdrop = (e) => {
     if (e.target === e.currentTarget) onClose?.()
   }
@@ -34,8 +33,8 @@ export const Modal = ({ isOpen, onClose, title, children }) => {
       onClick={handleBackdrop}
       className="fixed inset-0 z-50 bg-neutral-900/60 flex items-center justify-center p-lg"
     >
-      <div className="bg-neutral-0 rounded-xl shadow-md max-w-3xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="flex items-center justify-between px-xl py-lg border-b border-border-default">
+      <div className="bg-neutral-0 rounded-xl shadow-md max-w-130 w-full max-h-[80vh] overflow-y-auto">
+        <div className="flex items-center justify-between px-xl py-md border-b border-border-default">
           <h2 id={titleId} className="text-heading-lg text-text-primary">
             {title}
           </h2>

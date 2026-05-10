@@ -28,7 +28,6 @@ export const WorldMap = ({
   const [hovered, setHovered] = useState(null)
   const [cursor, setCursor] = useState({ x: 0, y: 0 })
 
-  // Joinea por código numérico UN M49: el TopoJSON usa geo.id (string) y disease.sh expone countryInfo._id (number).
   const lookup = useMemo(() => {
     const m = new Map()
     for (const c of data) {
