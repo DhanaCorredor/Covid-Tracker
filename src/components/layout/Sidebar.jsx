@@ -12,7 +12,7 @@ export const Sidebar = () => {
   return (
     <aside
       aria-label="Main navigation"
-      className="flex w-20 min-h-svh flex-col items-center gap-1.5 bg-neutral-100 py-4.5 box-border"
+      className="flex md:w-22 min-h-svh flex-col items-center gap-1.5 bg-neutral-100 py-4.5 box-border"
     >
       <Link to="/dashboard" aria-label="Covid Tracker — go to dashboard" className="grid h-11 w-11 place-items-center">
         <img src="/images/coronavirus.png" alt="Covid Tracker" className="block h-8 w-8 object-contain" />

@@ -7,8 +7,8 @@ import {
   ZoomableGroup,
 } from 'react-simple-maps'
 
-const DEFAULT_FILL = 'var(--color-purple-500)'
-const HOVER_FILL = 'var(--color-purple-700)'
+const DEFAULT_FILL = 'var(--color-status-death-cases)'
+const HOVER_FILL = 'var(--color-hover-map1)'
 const STROKE = 'var(--color-neutral-0)'
 
 const MIN_ZOOM = 1
@@ -80,14 +80,14 @@ export const WorldMap = ({
     })
 
   return (
-    <div className="relative w-full h-full bg-bg-dashboard rounded-lg overflow-hidden">
+    <div className="relative w-full h-full bg-neutral-0 rounded-sm overflow-hidden">
       {enableZoom && (
         <div className="absolute top-sm left-sm flex flex-col gap-xs z-10">
           <button
             type="button"
             aria-label="Zoom in"
             onClick={zoomIn}
-            className="bg-neutral-0 hover:bg-purple-50 text-text-primary rounded-md shadow-sm w-8 h-8 flex items-center justify-center"
+            className="bg-status-death-cases hover:bg-hover-map1 text-neutral-0 rounded-md shadow-sm w-8 h-8 flex items-center justify-center"
           >
             <Icon icon="mdi:plus" width={18} height={18} />
           </button>
@@ -95,7 +95,7 @@ export const WorldMap = ({
             type="button"
             aria-label="Zoom out"
             onClick={zoomOut}
-            className="bg-neutral-0 hover:bg-purple-50 text-text-primary rounded-md shadow-sm w-8 h-8 flex items-center justify-center"
+            className="bg-status-death-cases hover:bg-hover-map1 text-neutral-0 rounded-md shadow-sm w-8 h-8 flex items-center justify-center"
           >
             <Icon icon="mdi:minus" width={18} height={18} />
           </button>
@@ -104,7 +104,7 @@ export const WorldMap = ({
 
       <ComposableMap projection="geoMercator" projectionConfig={{ scale: 130 }}>
         {enableZoom ? (
-          <ZoomableGroup zoom={zoom} center={[0, 20]} minZoom={MIN_ZOOM} maxZoom={MAX_ZOOM}>
+          <ZoomableGroup zoom={zoom} center={[0, 45]} minZoom={MIN_ZOOM} maxZoom={MAX_ZOOM}>
             <Geographies geography={geoUrl}>
               {({ geographies }) => renderGeographies(geographies)}
             </Geographies>
