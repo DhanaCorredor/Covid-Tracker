@@ -48,14 +48,14 @@ function CustomTooltip({ active, payload, label }) {
   )
 }
 
-export function CountryChart({ country, days = 1400 }) {
+export function CountryChart({ country, days = 1400, showTitle = true }) {
   const { data, loading, error } = useHistoricalData(country, days)
   const series = buildSeries(data?.timeline)
 
   return (
     <div className="rounded-xl bg-white p-4 shadow-sm">
       <div className="mb-3 flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-gray-800">{country}</h3>
+        {showTitle && <h3 className="text-lg font-semibold text-gray-800">{country}</h3>}
         <ul className="m-0 flex list-none gap-3 p-0 text-xs text-gray-600">
           {SERIES.map((s) => (
             <li key={s.key} className="flex items-center gap-1.5">
@@ -70,7 +70,7 @@ export function CountryChart({ country, days = 1400 }) {
         </ul>
       </div>
 
-      <div className="h-64 w-full min-w-[300px]">
+      <div className="h-64 w-full min-w-75">
         {loading && <p className="text-sm text-gray-500">Loading…</p>}
         {error && <p className="text-sm text-red-500">{error.message}</p>}
         {!loading && !error && series.length > 0 && (

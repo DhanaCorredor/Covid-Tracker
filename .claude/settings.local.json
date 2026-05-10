@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const d=require\\('./public/geo/countries-110m.json'\\); const usa=d.objects.countries.geometries.find\\(g=>g.properties.name==='United States of America'\\); console.log\\('USA geo id:', usa.id, 'type:', typeof usa.id\\);\")"
+    ]
+  }
+}
