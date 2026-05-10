@@ -29,7 +29,7 @@ export const SidebarData = () => {
       </div>
 
       <div>
-        <h2 className=" text-heading-lg text-blue-950 mb-6">
+        <h2 className=" text-heading-md text-blue-950 mb-6">
           Top 10 Country
         </h2>
 

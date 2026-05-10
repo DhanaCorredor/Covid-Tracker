@@ -1,66 +1,68 @@
 import { useMemo } from "react";
 import {
-  useReactTable,
-  getCoreRowModel,
-  getSortedRowModel,
-  getFilteredRowModel,
-  flexRender,
+    useReactTable,
+    getCoreRowModel,
+    getSortedRowModel,
+    getFilteredRowModel,
+    flexRender,
 } from "@tanstack/react-table";
 import { COLUMNS } from "../../constants/covidTable";
 import { useCountries } from "../../hooks/useCountries";
-import { Icon } from "@iconify/react"; 
+import { Icon } from "@iconify/react";
 
 
 
-export default function CovidTable() {
-  // 1. useCountries ya gestiona loading, error y data por ti
-  //    initialData: [] significa que data empieza como array vacío — nunca undefined
-  const { data, loading, error } = useCountries("cases");
+export const CovidTable = () => {
 
-  // 2. useMemo depende de `data` — se actualiza cuando llegan los datos de la API
-  const tableData   = useMemo(() => data,    []);
-  const tableColumns = useMemo(() => COLUMNS, []);
+    const { data, loading, error } = useCountries("cases");
 
-  const table = useReactTable({
-    data:    tableData,
-    columns: tableColumns,
-    getCoreRowModel:     getCoreRowModel(),
-    getSortedRowModel:   getSortedRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-  });
 
-  // 3. Gestiona los tres estados antes de renderizar la tabla
-  if (loading) return <p>Cargando...</p>;
-  if (error)   return <p>Error: {error}</p>;
+    const tableData = useMemo(() => data, []);
+    const tableColumns = useMemo(() => COLUMNS, []);
 
-  return (
-    <table>
-      <thead>
-      {table.getHeaderGroups().map((hg) => (
-        <tr key={hg.id}>
-          {hg.headers.map((header) => (
-            <th 
-              key={header.id} 
-              onClick={header.column.getToggleSortingHandler()}
-              style={{ cursor: 'pointer' }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+    const table = useReactTable({
+        data: tableData,
+        columns: tableColumns,
+        getCoreRowModel: getCoreRowModel(),
+        getSortedRowModel: getSortedRowModel(),
+        getFilteredRowModel: getFilteredRowModel(),
+    });
 
-                {flexRender(header.column.columnDef.header, header.getContext())}
 
-                {{
-                  asc: <Icon icon="lucide:chevron-up" />,
-                  desc: <Icon icon="lucide:chevron-down" />,
-                }[header.column.getIsSorted()] ?? (
-                  <Icon icon="lucide:chevrons-up-down" />
-                )}
-              </div>
-            </th>
-          ))}
-        </tr>
-      ))}
-    </thead>
-      
-    </table>
-  );
+    if (loading) return <p>Cargando...</p>;
+    if (error) return <p>Error: {error}</p>;
+
+
+    return (
+
+
+        <table>
+            <thead>
+                {table.getHeaderGroups().map((hg) => (
+                    <tr className="" key={hg.id}>
+                        {hg.headers.map((header) => (
+                            <th
+                                key={header.id}
+                                onClick={header.column.getToggleSortingHandler()}
+                            >
+                                <div className="flex   gap-5 text-blue-950 p-1.5 text-body-md font-bold mt-5"  >
+
+                                    {flexRender(header.column.columnDef.header, header.getContext())}
+
+                                    {{
+                                        asc: <Icon icon="lucide:chevron-up" />,
+                                        desc: <Icon icon="lucide:chevron-down" />,
+                                    }[header.column.getIsSorted()] ?? (
+                                            <Icon icon="lucide:chevrons-up-down" className=" text-gray-500"/>
+                                    )}
+                                </div>
+                            </th>
+                        ))}
+                    </tr>
+                ))}
+            </thead>
+
+        </table>
+    );
 }
+
