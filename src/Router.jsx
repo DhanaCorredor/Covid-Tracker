@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import { ApiTest } from "./components/common/ApiTest";
+import { UnderConstruction } from "./components/common/UnderConstruction";
 import { DashboardLayout } from "./pages/DashboardLayout";
 import { Tracker1 } from "./pages/Tracker1";
-
-const Placeholder = ({ name }) => <h1 className="p-4">{name}</h1>;
+import { Tracker5 } from "./pages/Tracker5";
 
 export const Router = () => {
   return (
@@ -12,12 +12,12 @@ export const Router = () => {
         {/* Aqui las reemplazo por las páginas reales :D */}
         <Route index            element={<Tracker1 />} />  {/* → <DashboardPage /> */}
         <Route path="reports"   element={<Tracker1 />} />    {/* → <ReportsPage /> */}
-        <Route path="apps"      element={<Placeholder name="cambiamos" />} />       {/* → <AppsPage /> */}
-        <Route path="projects"  element={<Placeholder name="estas" />} />   {/* → <ProjectsPage /> */}
-        <Route path="files"     element={<Placeholder name="vistas" />} />      {/* → <FilesPage /> */}
-        <Route path="analytics" element={<Placeholder name="por las" />} />  {/* → <AnalyticsPage /> */}
-        <Route path="world"     element={<Placeholder name="que van" />} />      {/* → <WorldPage /> */}
-        <Route path="messages"  element={<Placeholder name="en el proyecto" />} />   {/* → <MessagesPage /> */}
+        <Route path="apps"      element={<UnderConstruction name="Apps" />} />       {/* → <AppsPage /> */}
+        <Route path="projects"  element={<UnderConstruction name="Projects" />} />   {/* → <ProjectsPage /> */}
+        <Route path="files"     element={<UnderConstruction name="Files" />} />      {/* → <FilesPage /> */}
+        <Route path="analytics" element={<Tracker5 />} />  {/* → <AnalyticsPage /> */}
+        <Route path="world"     element={<UnderConstruction name="World" />} />      {/* → <WorldPage /> */}
+        <Route path="messages"  element={<UnderConstruction name="Messages" />} />   {/* → <MessagesPage /> */}
       </Route>
 
       <Route path="/api-test" element={<ApiTest />} />
