@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import './symptoms.css';
 
 export default function Symptoms() {
@@ -8,22 +8,46 @@ export default function Symptoms() {
     {
       imgSrc: '/images/coronavirus.png',
       title: 'Aches and pains',
-      desc: 'Fever is a key symtom, experts say. Dont fixate on a number, but know its really not a fever until your temperature reaches at least 100.'
+      desc: 'Fever is a key symptom, experts say. Dont fixate on a number, but know its really not a fever until your temperature reaches at least 100.'
     },
     {
       imgSrc: '/images/carousel-02.svg',
       title: 'Runny nose',
-      desc: 'Peaple of all ages who experience fever and/or cough associated with difficultly breathing/shortness of breath.'
+      desc: 'People of all ages who experience fever and/or cough associated with difficulty breathing/shortness of breath.'
     },
     {
       imgSrc: '/images/carousel-03.svg',
       title: 'Short throat',
-      desc: 'Older people, and those with understying medical problems like high blood pressure, heart and lung problems, diabetes, or cancer.'
+      desc: 'Older people, and those with underlying medical problems like high blood pressure, heart and lung problems, diabetes, or cancer.'
     },
     {
       imgSrc: '/images/carousel-01.png',
       title: 'Persistent Cough',
       desc: 'A dry, persistent cough is a very common early indicator. It usually starts mild and becomes progressively more severe over days.'
+    }
+  ];
+
+  const newsData = [
+    {
+      date: '9 Sept 2020',
+      comments: '2 Comment',
+      title: 'What should I do if I have COVID-19 symptoms',
+      imgSrc: '/images/news-virus.png',
+      link: 'https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html'
+    },
+    {
+      date: '8 Sept 2020',
+      comments: '20 Comment',
+      title: 'What you need to know About Coronavirus',
+      imgSrc: '/images/news-lab.png',
+      link: 'https://www.who.int/health-topics/coronavirus'
+    },
+    {
+      date: '7 Sept 2020',
+      comments: '2 Comment',
+      title: 'Seek immediate care if you have difficulty breathing',
+      imgSrc: '/images/news-mask.png',
+      link: 'https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html#emergency-warning-signs'
     }
   ];
 
@@ -34,27 +58,6 @@ export default function Symptoms() {
   const scrollRight = () => {
     if (carouselRef.current) carouselRef.current.scrollBy({ left: 350, behavior: 'smooth' });
   };
-
-  const newsData = [
-    {
-      date: '9 Sept 2020',
-      comments: '2 Comment',
-      title: 'What should I do if I have COVID-19 symptoms',
-      imgSrc: '/images/carousel-01.png',
-    },
-    {
-      date: '8 Sept 2020',
-      comments: '20 Comment',
-      title: 'What you need to know About Coronavirus',
-      imgSrc: '/images/coronavirus.png',
-    },
-    {
-      date: '7 Sept 2020',
-      comments: '2 Comment',
-      title: 'Seek immediate care if you have difficulty breathing',
-      imgSrc: '/images/hands_hero.png',
-    }
-  ];
 
   return (
     <>
@@ -114,7 +117,7 @@ export default function Symptoms() {
                   <h3 className="text-xl font-bold text-slate-800 mb-6 flex-grow leading-tight">
                     {item.title}
                   </h3>
-                  <a href="#" className="text-blue-600 font-bold hover:text-blue-800 transition-colors inline-block mt-auto uppercase text-sm tracking-wide">
+                  <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 font-bold hover:text-blue-800 transition-colors inline-block mt-auto uppercase text-sm tracking-wide">
                     Continue
                   </a>
                 </div>

@@ -1,14 +1,13 @@
-import React from 'react';
 import './prevention.css';
 
 export default function Prevention() {
   const steps = [
-    { num: 1, title: 'Water and soap', imgSrc: '/images/icon4.png' },
-    { num: 2, title: 'Palm to palm', imgSrc: '/images/icon4.png' },
-    { num: 3, title: 'Between fingers', imgSrc: '/images/icon4.png' },
-    { num: 4, title: 'Focus on thumbs', imgSrc: '/images/icon4.png' },
-    { num: 5, title: 'Back of hands', imgSrc: '/images/icon4.png' },
-    { num: 6, title: 'Focus on wrists', imgSrc: '/images/icon4.png' },
+    { num: 1, title: 'Water and soap', imgSrc: '/images/wash-01.png' },
+    { num: 2, title: 'Palm to palm', imgSrc: '/images/wash-02.png' },
+    { num: 3, title: 'Between fingers', imgSrc: '/images/wash-03.png' },
+    { num: 4, title: 'Focus on thumbs', imgSrc: '/images/wash-04.png' },
+    { num: 5, title: 'Back of hands', imgSrc: '/images/wash-05.png' },
+    { num: 6, title: 'Focus on wrists', imgSrc: '/images/wash-06.png' },
   ];
 
   return (
@@ -28,25 +27,25 @@ export default function Prevention() {
               <img className="w-16 h-16 object-contain" alt="Mujer estornudando" src="/images/carousel-01.png"/>
               <div>
                 <h3 className="text-xl font-bold text-slate-800 mb-2">Personal Contact</h3>
-                <p className="text-slate-600">Fever is a key symtom, experts say. Dont fixate on a number, but know its really not a fever until your temperature reaches at least 100</p>
+                <p className="text-slate-600">Fever is a key symptom, experts say. Dont fixate on a number, but know its really not a fever until your temperature reaches at least 100</p>
               </div>
             </div>
             <div className="flex gap-6">
               <img className="w-16 h-16 object-contain" alt="" src="/images/icon5.png"/>
               <div>
                 <h3 className="text-xl font-bold text-slate-800 mb-2">Social distancing</h3>
-                <p className="text-slate-600">Hands touch many sufaces and can pick up viruses. So, hands can transfer the virus to your eyes, nose or mouth and can make you sick.</p>
+                <p className="text-slate-600">Hands touch many surfaces and can pick up viruses. So, hands can transfer the virus to your eyes, nose or mouth and can make you sick.</p>
               </div>
             </div>
             <div className="flex gap-6">
               <img className="w-16 h-16 object-contain" alt="" src="/images/icon6.png" />
               <div>
                 <h3 className="text-xl font-bold text-slate-800 mb-2">Clean And Disinfect</h3>
-                <p className="text-slate-600">Fever is a key symtom, experts say. Dont fixate on a number, but know its really not a fever until your temperature reaches at least 100.</p>
+                <p className="text-slate-600">Fever is a key symptom, experts say. Dont fixate on a number, but know its really not a fever until your temperature reaches at least 100.</p>
               </div>
             </div>
             <div className="flex gap-6">
-              <img className="w-16 h-16 object-contain" alt="" src="/images/icon4.png" />
+              <img className="w-16 h-16 object-contain" alt="" src="/images/wash-01.png" />
               <div>
                 <h3 className="text-xl font-bold text-slate-800 mb-2">Wash hands</h3>
                 <p className="text-slate-600">Maintain at least 1 metre (3 feet) distance between yourself & anyone who is coughing or sneezing. If you are too close, get chance to infected.</p>
@@ -56,14 +55,14 @@ export default function Prevention() {
               <img className="w-16 h-16 object-contain" alt="Pulmones" src="/images/carousel-03.svg" />
               <div>
                 <h3 className="text-xl font-bold text-slate-800 mb-2">Respiratory hygiene</h3>
-                <p className="text-slate-600">Maintain good respiratory hygiene as covering your mouth & nose with your bent elbow or tissue whwn cough or sneeze.</p>
+                <p className="text-slate-600">Maintain good respiratory hygiene as covering your mouth & nose with your bent elbow or tissue when cough or sneeze.</p>
               </div>
             </div>
             <div className="flex gap-6">
               <img className="w-16 h-16 object-contain" alt="" src="/images/carousel-02.svg" />
               <div>
                 <h3 className="text-xl font-bold text-slate-800 mb-2">Wear a Facemask</h3>
-                <p className="text-slate-600">Our comprehensive Online Marketing strategy will boast your website trafuc hence monthly sales.</p>
+                <p className="text-slate-600">Our comprehensive Online Marketing strategy will boost your website traffic hence monthly sales.</p>
               </div>
             </div>
           </div>
