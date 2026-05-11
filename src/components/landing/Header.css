@@ -2,7 +2,14 @@
   font-family: 'Inter', sans-serif;
 }
 
+.header-background {
+  background-image: url('/images/bg-header.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
 .app-banner {
   background-color: #1A73E8;
   border-radius: 0;
 }
+

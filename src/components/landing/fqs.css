@@ -1,5 +1,7 @@
 .faqs-section {
-  background: linear-gradient(135deg, #18BDB5 0%, #0DA6C8 100%);
+  background-image: url('/images/bg-header.jpg');
+  background-size: cover;
+  background-position: center;
   color: white;
 }
 

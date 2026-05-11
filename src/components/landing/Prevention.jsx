@@ -22,13 +22,10 @@ export default function Prevention() {
             Best way to prevent is avoid virus.
           </h2>
 
-        <div className="flex flex-col lg:flex-row gap-12 items-center text-left mb-24">
-          <div className="lg:w-1/3 flex justify-center">
-            <img src="/images/carousel-01.png" alt="Sneezing Woman" className="w-full max-w-md object-contain drop-shadow-2xl" />
-          </div>
-          <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="flex flex-col gap-12 items-center text-left mb-24">
+          <div className="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-12 gap-y-12">
             <div className="flex gap-6">
-              <img className="w-16 h-16 object-contain" alt="" src="/images/icon2.png" />
+              <img className="w-16 h-16 object-contain" alt="Mujer estornudando" src="/images/carousel-01.png"/>
               <div>
                 <h3 className="text-xl font-bold text-slate-800 mb-2">Personal Contact</h3>
                 <p className="text-slate-600">Fever is a key symtom, experts say. Dont fixate on a number, but know its really not a fever until your temperature reaches at least 100</p>
@@ -56,7 +53,7 @@ export default function Prevention() {
               </div>
             </div>
             <div className="flex gap-6">
-              <img className="w-16 h-16 object-contain" alt="" src="/images/carousel-03.svg" />
+              <img className="w-16 h-16 object-contain" alt="Pulmones" src="/images/carousel-03.svg" />
               <div>
                 <h3 className="text-xl font-bold text-slate-800 mb-2">Respiratory hygiene</h3>
                 <p className="text-slate-600">Maintain good respiratory hygiene as covering your mouth & nose with your bent elbow or tissue whwn cough or sneeze.</p>

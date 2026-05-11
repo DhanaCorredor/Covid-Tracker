@@ -1,7 +1,40 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './symptoms.css';
 
 export default function Symptoms() {
+  const carouselRef = useRef(null);
+
+  const symptomsList = [
+    {
+      imgSrc: '/images/coronavirus.png',
+      title: 'Aches and pains',
+      desc: 'Fever is a key symtom, experts say. Dont fixate on a number, but know its really not a fever until your temperature reaches at least 100.'
+    },
+    {
+      imgSrc: '/images/carousel-02.svg',
+      title: 'Runny nose',
+      desc: 'Peaple of all ages who experience fever and/or cough associated with difficultly breathing/shortness of breath.'
+    },
+    {
+      imgSrc: '/images/carousel-03.svg',
+      title: 'Short throat',
+      desc: 'Older people, and those with understying medical problems like high blood pressure, heart and lung problems, diabetes, or cancer.'
+    },
+    {
+      imgSrc: '/images/carousel-01.png',
+      title: 'Persistent Cough',
+      desc: 'A dry, persistent cough is a very common early indicator. It usually starts mild and becomes progressively more severe over days.'
+    }
+  ];
+
+  const scrollLeft = () => {
+    if (carouselRef.current) carouselRef.current.scrollBy({ left: -350, behavior: 'smooth' });
+  };
+
+  const scrollRight = () => {
+    if (carouselRef.current) carouselRef.current.scrollBy({ left: 350, behavior: 'smooth' });
+  };
+
   const newsData = [
     {
       date: '9 Sept 2020',
@@ -26,7 +59,7 @@ export default function Symptoms() {
   return (
     <>
       <div className="w-full bg-white py-24 border-t border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 text-center relative">
           <span className="text-slate-500 font-bold uppercase tracking-widest text-sm mb-4 block">
             Symptom
           </span>
@@ -34,22 +67,27 @@ export default function Symptoms() {
             Basic Symptom Against Corona virus
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-            <div className="flex flex-col items-center">
-              <img className="w-48 h-48 object-contain mb-6 shadow-xl rounded-full" alt="" src="/images/coronavirus.png" />
-              <h3 className="text-2xl font-bold text-slate-800 mb-4">Aches and pains</h3>
-              <p className="text-slate-600">Fever is a key symtom, experts say. Dont fixate on a number, but know its really not a fever until your temperature reaches at least 100.</p>
+          <div className="relative w-full px-2 md:px-12 group">
+            {/* Left Arrow */}
+            <button onClick={scrollLeft} className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 items-center justify-center bg-white shadow-lg rounded-full text-blue-600 hover:bg-blue-50 transition-colors focus:outline-none border border-slate-100">
+               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path></svg>
+            </button>
+
+            {/* Carousel Container */}
+            <div ref={carouselRef} className="flex flex-row overflow-x-auto snap-x snap-mandatory scroll-smooth gap-6 w-full py-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+              {symptomsList.map((item, index) => (
+                <div key={index} className="flex-none w-[85%] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-center flex flex-col items-center p-6 transition-transform duration-300 hover:-translate-y-2">
+                  <img className="w-48 h-48 object-contain mb-6 drop-shadow-xl" alt={item.title} src={item.imgSrc} />
+                  <h3 className="text-2xl font-bold text-slate-800 mb-4">{item.title}</h3>
+                  <p className="text-slate-600 text-center leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
             </div>
-            <div className="flex flex-col items-center">
-              <img className="w-48 h-48 object-contain mb-6" alt="" src="/images/carousel-02.svg"/>
-              <h3 className="text-2xl font-bold text-slate-800 mb-4">Runny nose</h3>
-              <p className="text-slate-600">Peaple of all ages who experience fever and/or cough associated with difficultly breathing/shortness of breath.</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <img className="w-48 h-48 object-contain mb-6" alt="" src="/images/carousel-03.svg" />
-              <h3 className="text-2xl font-bold text-slate-800 mb-4">Short throat</h3>
-              <p className="text-slate-600">Older people, and those with understying medical problems like high blood pressure, heart and lung problems, diabetes, or cancer.</p>
-            </div>
+
+            {/* Right Arrow */}
+            <button onClick={scrollRight} className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 items-center justify-center bg-white shadow-lg rounded-full text-blue-600 hover:bg-blue-50 transition-colors focus:outline-none border border-slate-100">
+               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+            </button>
           </div>
         </div>
       </div>

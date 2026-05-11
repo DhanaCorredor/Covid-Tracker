@@ -1,23 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './fqs.css';
 
 export const Faqs = () => {
-  const faqsLeft = [
+  const [openIndex, setOpenIndex] = useState(0);
+
+  const allFaqs = [
     {
       q: '01. How does COVID-19 spread?',
       a: 'Data has shown that it spreads from person to person among those in close contact (within about 6 feet, or 2 meters). The virus spreads by respiratory droplets released when someone infected with the virus.'
     },
     {
-      q: '2. What are the symptoms of COVID-19?',
+      q: '02. What are the symptoms of COVID-19?',
       a: ''
     },
     {
-      q: '3. Should I wear mask?',
+      q: '03. Should I wear mask?',
       a: ''
-    }
-  ];
-
-  const faqsRight = [
+    },
     {
       q: '04. What does it mean to self-isolate?',
       a: ''
@@ -32,27 +31,39 @@ export const Faqs = () => {
     }
   ];
 
+  const toggleFaq = (idx) => {
+    setOpenIndex(openIndex === idx ? -1 : idx);
+  };
+
   return (
     <>
       <div className="faqs-section w-full py-24">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="flex flex-col gap-6">
-              {faqsLeft.map((faq, idx) => (
-                <div key={idx} className="faq-card">
-                  <h3 className="text-xl font-bold mb-2">{faq.q}</h3>
-                  {faq.a && <p className="text-blue-100 text-sm leading-relaxed">{faq.a}</p>}
+        <div className="max-w-3xl mx-auto px-4 md:px-8 text-center mb-12">
+          <span className="text-slate-400 font-bold uppercase tracking-widest text-xs mb-4 block">
+            Faq
+          </span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-10">
+            Frequently Asked Questions
+          </h2>
+        </div>
+        
+        <div className="max-w-4xl mx-auto px-4 md:px-8">
+          <div className="bg-[#1C274C] rounded-xl p-8 md:p-12 flex flex-col gap-8 shadow-2xl text-left">
+            {allFaqs.map((faq, idx) => {
+              const isOpen = openIndex === idx;
+              return (
+                <div key={idx} className="cursor-pointer" onClick={() => toggleFaq(idx)}>
+                  <h3 className={`text-lg md:text-xl font-bold transition-colors ${isOpen ? 'text-white' : 'text-slate-300 hover:text-white'}`}>
+                    {faq.q}
+                  </h3>
+                  {isOpen && faq.a && (
+                    <p className="text-slate-400 text-sm leading-relaxed mt-4">
+                      {faq.a}
+                    </p>
+                  )}
                 </div>
-              ))}
-            </div>
-            <div className="flex flex-col gap-6">
-              {faqsRight.map((faq, idx) => (
-                <div key={idx} className="faq-card">
-                  <h3 className="text-xl font-bold mb-2">{faq.q}</h3>
-                  {faq.a && <p className="text-blue-100 text-sm leading-relaxed">{faq.a}</p>}
-                </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -62,7 +73,7 @@ export const Faqs = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
             <div className="col-span-1">
               <div className="flex items-center gap-2 mb-6 text-white">
-                <img src="/images/icon2.png" alt="logo" className="w-8 h-8 object-contain opacity-80" />
+                <img src="/images/covid-blue.svg" alt="logo" className="w-8 h-8 object-contain opacity-80" />
                 <h2 className="text-2xl font-bold">COVIMAP</h2>
               </div>
               <p className="text-sm leading-relaxed mb-6">
