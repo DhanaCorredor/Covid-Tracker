@@ -15,6 +15,17 @@ export const GLOBAL_METRICS = [
   { key: 'helpline', title: 'Help Line No.', variant: 'helpline', staticValue: 198 },
 ]
 
+export const TRACKER6_METRICS = [
+  { key: 'cases',              title: 'Total Cases',       variant: 'cases' },
+  { key: 'todayCases',         title: 'Today Cases',       variant: 'critical' },
+  { key: 'deaths',             title: 'Total Deaths',      variant: 'deaths' },
+  { key: 'todayDeaths',        title: 'Today Deaths',      variant: 'deaths' },
+  { key: 'recovered',          title: 'Recovered',         variant: 'recovered' },
+  { key: 'active',             title: 'Active',            variant: 'active' },
+  { key: 'critical',           title: 'Critical',          variant: 'critical' },
+  { key: 'casesPerOneMillion', title: 'Cases Per Million', variant: 'cases' },
+]
+
 export const METRIC_VARIANTS = {
   cases: {
     colorClass: 'text-status-death-cases',

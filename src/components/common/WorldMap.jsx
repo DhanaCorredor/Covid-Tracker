@@ -23,6 +23,8 @@ export const WorldMap = ({
   tooltipContent,
   enableZoom = true,
   geoUrl = '/geo/countries-110m.json',
+  title,
+  showTitle = false,
 }) => {
   const [zoom, setZoom] = useState(1)
   const [hovered, setHovered] = useState(null)
@@ -81,6 +83,11 @@ export const WorldMap = ({
 
   return (
     <div className="relative w-full h-full bg-neutral-0 rounded-sm overflow-hidden">
+      {showTitle && title && (
+        <h3 className="absolute top-md left-md z-10 text-heading-md text-text-primary">
+          {title}
+        </h3>
+      )}
       {enableZoom && (
         <div className="absolute top-sm left-sm flex flex-col gap-xs z-10">
           <button
