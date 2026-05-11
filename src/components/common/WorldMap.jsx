@@ -23,8 +23,7 @@ export const WorldMap = ({
   tooltipContent,
   enableZoom = true,
   geoUrl = '/geo/countries-110m.json',
-  title,
-  showTitle = false,
+  zoomButtonClassName = 'bg-status-death-cases hover:bg-hover-map1 text-neutral-0',
 }) => {
   const [zoom, setZoom] = useState(1)
   const [hovered, setHovered] = useState(null)
@@ -82,19 +81,14 @@ export const WorldMap = ({
     })
 
   return (
-    <div className="relative w-full h-full bg-neutral-0 rounded-sm overflow-hidden">
-      {showTitle && title && (
-        <h3 className="absolute top-md left-md z-10 text-heading-md text-text-primary">
-          {title}
-        </h3>
-      )}
+    <div className="relative flex items-center justify-center w-full h-full bg-neutral-0 rounded-sm overflow-hidden">
       {enableZoom && (
         <div className="absolute top-sm left-sm flex flex-col gap-xs z-10">
           <button
             type="button"
             aria-label="Zoom in"
             onClick={zoomIn}
-            className="bg-status-death-cases hover:bg-hover-map1 text-neutral-0 rounded-md shadow-sm w-8 h-8 flex items-center justify-center"
+            className={`${zoomButtonClassName} rounded-md shadow-sm w-6 h-6 md:w-8 md:h-8 flex items-center justify-center`}
           >
             <Icon icon="mdi:plus" width={18} height={18} />
           </button>
@@ -102,7 +96,7 @@ export const WorldMap = ({
             type="button"
             aria-label="Zoom out"
             onClick={zoomOut}
-            className="bg-status-death-cases hover:bg-hover-map1 text-neutral-0 rounded-md shadow-sm w-8 h-8 flex items-center justify-center"
+            className={`${zoomButtonClassName} rounded-md shadow-sm w-6 h-6 md:w-8 md:h-8 flex items-center justify-center`}
           >
             <Icon icon="mdi:minus" width={18} height={18} />
           </button>
