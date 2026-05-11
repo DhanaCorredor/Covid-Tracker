@@ -45,7 +45,7 @@ export default function Prevention() {
               </div>
             </div>
             <div className="flex gap-6">
-              <img className="w-16 h-16 object-contain" alt="" src="/images/wash-01.png" />
+              <img className="w-16 h-16 object-contain bg-white rounded-xl p-2" alt="" src="/images/wash-01.png" />
               <div>
                 <h3 className="text-xl font-bold text-slate-800 mb-2">Wash hands</h3>
                 <p className="text-slate-600">Maintain at least 1 metre (3 feet) distance between yourself & anyone who is coughing or sneezing. If you are too close, get chance to infected.</p>
