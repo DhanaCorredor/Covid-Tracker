@@ -1,44 +1,101 @@
 import React from 'react';
+import './prevention.css';
 
-export default function Symptoms() {
-  return 
+export default function Prevention() {
+  const steps = [
+    { num: 1, title: 'Water and soap', imgSrc: '/images/icon4.png' },
+    { num: 2, title: 'Palm to palm', imgSrc: '/images/icon4.png' },
+    { num: 3, title: 'Between fingers', imgSrc: '/images/icon4.png' },
+    { num: 4, title: 'Focus on thumbs', imgSrc: '/images/icon4.png' },
+    { num: 5, title: 'Back of hands', imgSrc: '/images/icon4.png' },
+    { num: 6, title: 'Focus on wrists', imgSrc: '/images/icon4.png' },
+  ];
 
-<div class="flex flex-col items-center rounded-2xl"> 
-  <div>
-    <h1> Prevent </h1>
-    --color-bg-landing-symptoms:   #F0F8FF; 
-    <h2> Best way to prevent is avoid virus. </h2>
-   --color-bg-landing-footer:   #1B2A4E;  
-   </div>
-   <div>
-    <img class="woman-head" alt="" src="/public/images/icon2.png" />
-        <h2> Personal Contact</h2>
-        <p> Fever is a key symtom, experts say. Dont fixate on a number, but know its really not a fever until your temperature reaches at least 100 </p>
-   </div>
-   <div>
-    <img class="hands" alt="" src="/public/images/icon5.png"/>
-    <h2> Social distancing</h2>
-    <p>  Hands touch many sufaces and can pick up viruses. So, hands can transfer the virus to your eyes, nose or mouth and can make you sick.</p>
-   </div>
-   <div>
-    <img class="not-animal" alt="" src="/public/images/icon6.png" />
-    <h2> Clean And Disinfect</h2>
-    <p> Fever is a key symtom, experts say. Dont fixate on a number, but know its really not a fever until your temperature reaches at least 100.</p>
-   </div>
-   <div>
-    <img class="mask_woman" alt="" src="/public/images/icon4.png" />
-    <h2> Wash hands </h2>
-    <p> Maintain at least 1 metre (3 feet) distance between yourself & anyone who is coughing or sneezing. If you are too close, get chance to infected. </p>
-   </div>
-   <div>
-    <img class="respiratory_higiene_heart" alt=" src =/public/images/carousel-03.png" />
-    <h2> Respiratory hygiene</h2>
-    <p> Mointain good respiratory hygiene as covering your mouth & nose with your bent elbow or tissue  whwn cough or sneeze.</p>
-   </div>
-   <div>
-     <img class="pulmons" alt="" src="/public/images/carousel-02.png" />
-      <h2> Wear a Facemask </h2>
-      <p> Our comprehensive Online Marketing strategy will boast your website trafuc hence monthly sales.</p> 
-    </div>
-    </div>
+  return (
+    <>
+      <div className="w-full bg-slate-50 py-24">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
+          <span className="text-slate-500 font-bold uppercase tracking-widest text-sm mb-4 block">
+            Prevent
+          </span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-16 leading-tight max-w-3xl mx-auto">
+            Best way to prevent is avoid virus.
+          </h2>
+
+        <div className="flex flex-col lg:flex-row gap-12 items-center text-left mb-24">
+          <div className="lg:w-1/3 flex justify-center">
+            <img src="/images/carousel-01.png" alt="Sneezing Woman" className="w-full max-w-md object-contain drop-shadow-2xl" />
+          </div>
+          <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="flex gap-6">
+              <img className="w-16 h-16 object-contain" alt="" src="/images/icon2.png" />
+              <div>
+                <h3 className="text-xl font-bold text-slate-800 mb-2">Personal Contact</h3>
+                <p className="text-slate-600">Fever is a key symtom, experts say. Dont fixate on a number, but know its really not a fever until your temperature reaches at least 100</p>
+              </div>
+            </div>
+            <div className="flex gap-6">
+              <img className="w-16 h-16 object-contain" alt="" src="/images/icon5.png"/>
+              <div>
+                <h3 className="text-xl font-bold text-slate-800 mb-2">Social distancing</h3>
+                <p className="text-slate-600">Hands touch many sufaces and can pick up viruses. So, hands can transfer the virus to your eyes, nose or mouth and can make you sick.</p>
+              </div>
+            </div>
+            <div className="flex gap-6">
+              <img className="w-16 h-16 object-contain" alt="" src="/images/icon6.png" />
+              <div>
+                <h3 className="text-xl font-bold text-slate-800 mb-2">Clean And Disinfect</h3>
+                <p className="text-slate-600">Fever is a key symtom, experts say. Dont fixate on a number, but know its really not a fever until your temperature reaches at least 100.</p>
+              </div>
+            </div>
+            <div className="flex gap-6">
+              <img className="w-16 h-16 object-contain" alt="" src="/images/icon4.png" />
+              <div>
+                <h3 className="text-xl font-bold text-slate-800 mb-2">Wash hands</h3>
+                <p className="text-slate-600">Maintain at least 1 metre (3 feet) distance between yourself & anyone who is coughing or sneezing. If you are too close, get chance to infected.</p>
+              </div>
+            </div>
+            <div className="flex gap-6">
+              <img className="w-16 h-16 object-contain" alt="" src="/images/carousel-03.svg" />
+              <div>
+                <h3 className="text-xl font-bold text-slate-800 mb-2">Respiratory hygiene</h3>
+                <p className="text-slate-600">Maintain good respiratory hygiene as covering your mouth & nose with your bent elbow or tissue whwn cough or sneeze.</p>
+              </div>
+            </div>
+            <div className="flex gap-6">
+              <img className="w-16 h-16 object-contain" alt="" src="/images/carousel-02.svg" />
+              <div>
+                <h3 className="text-xl font-bold text-slate-800 mb-2">Wear a Facemask</h3>
+                <p className="text-slate-600">Our comprehensive Online Marketing strategy will boast your website trafuc hence monthly sales.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div className="w-full bg-white py-24 border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
+          <span className="text-slate-500 font-bold uppercase tracking-widest text-sm mb-4 block">
+            Wash
+          </span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-800 mb-16 leading-tight max-w-3xl mx-auto">
+            Wash Your Hands min 20 Second
+          </h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+            {steps.map((step) => (
+              <div key={step.num} className="flex flex-col items-center">
+                <div className="step-circle mb-6">
+                  <div className="step-number">{step.num}</div>
+                  <img src={step.imgSrc} alt={step.title} className="absolute inset-0 w-full h-full object-contain rounded-full border-4 border-white shadow-sm" />
+                </div>
+                <h3 className="text-lg font-bold text-slate-800">{step.title}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }

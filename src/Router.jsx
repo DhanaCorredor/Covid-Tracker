@@ -2,12 +2,14 @@ import { Route, Routes } from "react-router-dom";
 import { ApiTest } from "./components/common/ApiTest";
 import { DashboardLayout } from "./pages/DashboardLayout";
 import { Tracker1 } from "./pages/Tracker1";
+import { LandingPage } from "./pages/LandingPage";
 
 const Placeholder = ({ name }) => <h1 className="p-4">{name}</h1>;
 
 export const Router = () => {
   return (
     <Routes>
+      <Route path="/" element={<LandingPage/>} />
       <Route path="/dashboard" element={<DashboardLayout />}>
         {/* Aqui las reemplazo por las páginas reales :D */}
         <Route index            element={<Tracker1 />} />  {/* → <DashboardPage /> */}

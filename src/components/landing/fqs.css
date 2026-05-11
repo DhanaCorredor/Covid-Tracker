@@ -1,0 +1,45 @@
+.faqs-section {
+  background: linear-gradient(135deg, #18BDB5 0%, #0DA6C8 100%);
+  color: white;
+}
+
+.faq-card {
+  background-color: #275C9A;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.faq-card:hover {
+  background-color: #1E4D85;
+}
+
+.footer-section {
+  background-color: #1B2A4E;
+  color: #CBD5E1;
+}
+
+.footer-link {
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #fff;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.social-icon:hover {
+  background-color: #0A58CA;
+  color: white;
+}
