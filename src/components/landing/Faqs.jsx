@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './fqs.css';
+import './Faqs.css';
 
 export const Faqs = () => {
   const [openIndex, setOpenIndex] = useState(0);
