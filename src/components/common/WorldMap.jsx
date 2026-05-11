@@ -32,7 +32,7 @@ export const WorldMap = ({
     const m = new Map()
     for (const c of data) {
       const id = c?.countryInfo?._id
-      if (id != null) m.set(String(id), c)
+      if (id != null) m.set(String(id).padStart(3, '0'), c)
     }
     return m
   }, [data])
@@ -57,7 +57,7 @@ export const WorldMap = ({
 
   const renderGeographies = (geographies) =>
     geographies.map((geo) => {
-      const datum = lookup.get(String(geo.id))
+      const datum = lookup.get(String(geo.id).padStart(3, '0'))
       const fill = getFill?.(geo, datum) ?? DEFAULT_FILL
       return (
         <Geography
