@@ -7,7 +7,9 @@ export const ControlsTable = ({ table, globalFilter, setGlobalFilter }) => {
             <div className="flex items-center gap-2 text-body-sm text-text-secondary">
                 Show
                 <select
-                    className="border text-center w-15 h-8    border-border-strong"
+                    value={table.getState().pagination.pageSize}
+                    onChange={e => table.setPageSize(Number(e.target.value))}
+                    className="border text-center w-15 h-8  border-border-strong"
                 >
                     {[10, 25, 50].map(pageSize => (
                         <option key={pageSize} value={pageSize}>{pageSize}</option>

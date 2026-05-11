@@ -1,9 +1,18 @@
+import {formatNumber} from "../utils/format"
+
+
+
 export const COLUMNS = [
-  {
-   accessorKey: "flag",
-    header: "Flag",                      
-    cell: (info) => info.getValue(),   
-    enableSorting: false,              
+{
+    header: "Flag",
+    accessorKey: "countryInfo.flag", 
+    cell: (info) => (
+      <img 
+        src={info.getValue()} 
+        alt="Flag" 
+        className="w-8 h-5" 
+      />
+    ),
   },
   {
     accessorKey: "country",
@@ -13,49 +22,49 @@ export const COLUMNS = [
   {
     accessorKey: "cases",
     header: "Cases",
-    cell: (info) => info.getValue().formatNumber("es-ES"),
+    cell: (info) => formatNumber(info.getValue()),
   },
   {
- accessorKey:'newCases', 
-    header: 'New Cases',
-    cell: info => info.getValue() || 0,
+    accessorKey: "newCases",
+    header: "New Cases",
+    cell: (info) => formatNumber(info.getValue() || 0),
   },
   {
     accessorKey: "deaths",
     header: "Deaths",
     cell: (info) => (
-      <span >
-        {info.getValue().formatNumber("es-ES")}
+      <span>
+        {formatNumber(info.getValue())}
       </span>
     ),
   },
   {
-    accessorKey: 'newDeaths', 
-    header: 'New Deaths',
-    cell: info => info.getValue() || 0,
+    accessorKey: "newDeaths",
+    header: "New Deaths",
+    cell: (info) => formatNumber(info.getValue() || 0),
   },
   {
     accessorKey: "recovered",
     header: "Recovered",
     cell: (info) => (
-      <span >
-        {info.getValue().formatNumber("es-ES")}
+      <span>
+        {formatNumber(info.getValue())}
       </span>
     ),
   },
   {
     accessorKey: "active",
     header: "Active",
-    cell: (info) => info.getValue().formatNumber("es-ES"),
+    cell: (info) => formatNumber(info.getValue()),
   },
   {
     accessorKey: "critical",
     header: "Critical",
-    cell: (info) => info.getValue().formatNumber("es-ES"),
+    cell: (info) => formatNumber(info.getValue()),
   },
   {
     accessorKey: "tested",
     header: "Tested",
-    cell: (info) => info.getValue().formatNumber("es-ES"),
+    cell: (info) => formatNumber(info.getValue()),
   },
 ];
