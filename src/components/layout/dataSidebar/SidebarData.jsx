@@ -13,9 +13,14 @@ export const SidebarData = () => {
 
   return (
 
+<<<<<<< HEAD
     <div className="p-5 shadow-sm bg-neutral-0 max-w-80">
 
       <h1 className="text-heading-lg font-black tracking-wide p-2">COVID-19 Tracker</h1>
+=======
+    <div className="p-5 shadow-sm bg-neutral-0 max-w-87.5">
+      <h1 className="text-heading-xl p-5">COVID-19 Tracker</h1>
+>>>>>>> eeb1a14e6551ea3fd1eb912abb967516480a113b
 
       <div className="grid grid-cols-1">
         {stats(globalData).map((stat) => (
