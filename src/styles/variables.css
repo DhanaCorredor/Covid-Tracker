@@ -35,6 +35,7 @@
   --color-status-death-cases-bg: #EEFBFF; /* azul claro de fondo */
   --color-status-death:          #B70202; /* rojo oscuro */
   --color-total-active:          #3B82F6; /* azul */
+  --color-hover-map1:            #7374C5; /* azul claro de fondo */
 
   --color-text-primary:   #0F172A; /* neutral-900 */
   --color-text-secondary: #64748B; /* neutral-500 */
@@ -71,7 +72,7 @@
   --text-body-md: 0.8125rem;    /* 13px mobile  → 14px desktop */
   --text-body-sm: 0.75rem;      /* 12px mobile  = 12px desktop (mínimo legible) */
 
-  --text-label-md: 0.8125rem;   /* 13px mobile  → 14px desktop */
+  --text-label-md: 0.9375rem;    /* 15px mobile  → 16px desktop */
   --text-label-md--font-weight: 500;
 
   --text-label-sm: 0.75rem;     /* 12px mobile  = 12px desktop */
