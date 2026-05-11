@@ -14,7 +14,7 @@ export const Select = ({ value, onChange, options, ariaLabel, className = '' }) 
   }
 
   return (
-    <div className={`relative inline-block ${className}`}>
+    <div className={`relative inline-block w-full ${className}`}>
       <select
         value={value}
         onChange={handleChange}
