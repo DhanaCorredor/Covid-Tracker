@@ -13,7 +13,7 @@ export const SidebarData = () => {
 
   return (
 
-    <div className="p-5 shadow-sm bg-neutral-0 max-w-80">
+    <div className="p-5 shadow-sm bg-neutral-0 max-w-87.5">
       <h1 className="text-heading-xl p-5">COVID-19 Tracker</h1>
 
       <div className="grid grid-cols-1">
