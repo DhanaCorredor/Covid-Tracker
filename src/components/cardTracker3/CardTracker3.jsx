@@ -37,7 +37,7 @@ export const TopTenCountries = () => {
 
     return (
         <div className="top-10-container">
-            <h2 className="top-10-title">Total Cases</h2>
+            <h2 className="top-10-title">Total Cases                 </h2>
             <h2>Today Cases</h2>
             <h2>Today Deaths</h2>
             <h2>Today deaths</h2>
