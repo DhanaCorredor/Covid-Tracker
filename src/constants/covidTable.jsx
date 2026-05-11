@@ -1,16 +1,14 @@
-import {formatNumber} from "../utils/format"
-
-
+import { formatNumber } from "../utils/format"
 
 export const COLUMNS = [
-{
+  {
     header: "Flag",
-    accessorKey: "countryInfo.flag", 
+    accessorKey: "countryInfo.flag",
     cell: (info) => (
-      <img 
-        src={info.getValue()} 
-        alt="Flag" 
-        className="w-8 h-5" 
+      <img
+        src={info.getValue()}
+        alt="Flag"
+        className="w-8 h-5"
       />
     ),
   },
@@ -63,8 +61,8 @@ export const COLUMNS = [
     cell: (info) => formatNumber(info.getValue()),
   },
   {
-    accessorKey: "tested",
-    header: "Tested",
-    cell: (info) => formatNumber(info.getValue()),
+    header: "Tests",
+    accessorKey: "tests",
+    cell: (info) => formatNumber(info.getValue()) ?? '0',
   },
 ];

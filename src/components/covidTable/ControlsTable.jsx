@@ -21,10 +21,13 @@ export const ControlsTable = ({ table, globalFilter, setGlobalFilter }) => {
             <div className="flex items-center gap-2">
                 <label className="text-body-sm text-text-secondary">Search:</label>
                 <input
-                    value={globalFilter ?? ''}
-                    onChange={e => setGlobalFilter(e.target.value)}
-                    className="border  border-border-strong w-30 h-10
-                     "
+                    type="search"
+                    value={globalFilter}
+                    onChange={e => {
+                        setGlobalFilter(e.target.value)
+                        table.setPageIndex(0)
+                    }}
+                    className="border  border-border-strong w-30 h-10"
                 />
             </div>
         </div>

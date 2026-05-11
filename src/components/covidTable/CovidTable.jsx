@@ -7,9 +7,9 @@ import {
     flexRender,
 } from "@tanstack/react-table";
 import { COLUMNS } from "../../constants/covidTable";
-import { useCountries } from "../../hooks/useCountries";
 import { Icon } from "@iconify/react";
 import { ControlsTable } from "./ControlsTable";
+import { useCountries } from "../../hooks/useCountries";
 
 
 
@@ -20,7 +20,7 @@ export const CovidTable = () => {
 
     const tableData = useMemo(() => apiData || [], [apiData]);
     const tableColumns = useMemo(() => COLUMNS, []);
-    
+
     const table = useReactTable({
         data: tableData,
         columns: tableColumns,
@@ -36,9 +36,10 @@ export const CovidTable = () => {
 
     return (
         <div>
-<ControlsTable table={table}></ControlsTable>
-            <table>
-                
+            <ControlsTable
+                table={table} />
+            <table className="w-full border-collapse">
+
                 <thead>
                     {table.getHeaderGroups().map((hg) => (
                         <tr className="" key={hg.id}>
@@ -46,8 +47,9 @@ export const CovidTable = () => {
                                 <th
                                     key={header.id}
                                     onClick={header.column.getToggleSortingHandler()}
+                                    className={header.column.columnDef.meta?.className}
                                 >
-                                    <div className="flex gap-5 text-blue-950 p-1.5 text-body-md font-bold mt-5"  >
+                                    <div className=" flex items-center  gap-2 px-3 py-3 text-blue-950 text-body-md font-bold "  >
 
                                         {flexRender(header.column.columnDef.header, header.getContext())}
 
@@ -74,9 +76,9 @@ export const CovidTable = () => {
                                 <td
                                     key={cell.id}
                                     className={`
-                                            px-4 py-3 text-body-lg font-light text-gray-500 
-                                            ${index === 2 ? "bg-neutral-300 " : ""} 
-                                            ${index > 1 ? "text-right" : "text-left"}
+                                          px-3  py-3 text-body-md font-light text-gray-500
+                                            ${index === 2 ? "bg-neutral-300 " : ""}
+                                            
                                         `}
                                 >
                                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
@@ -85,10 +87,8 @@ export const CovidTable = () => {
                         </tr>
                     ))}
                 </tbody>
-
-
-
             </table>
+           
         </div>
     );
 }
