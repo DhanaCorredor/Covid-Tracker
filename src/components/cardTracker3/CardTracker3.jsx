@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './cardTracker3.css'
+import { useCountries } from '../../hooks/useCountries';
 
 const CardCountry = ({ flagUrl, countryName, totalCases }) => {
     return (
@@ -14,33 +15,17 @@ const CardCountry = ({ flagUrl, countryName, totalCases }) => {
 }
 
 export const TopTenCountries = () => {
+    const { data: countries, loading: loadingCountries } = useCountries();
 
-    let api_url = "https://disease.sh/v3/covid-19/countries"
 
-    // Hook UseState - Mantiene el estado del componente
-    const [countries, setCountries] = useState()
-    const [loading, setLoading] = useState(true)
-    console.log(countries)
-
-    // Hook UseEffect - Monta el componente en base a un estado
-    useEffect(() => {
-        const api = async (url) => {
-            const result = await fetch(url);
-            let covid_data = await result.json();
-            setCountries(covid_data);
-            setLoading(false)
-        };
-        api(api_url)
-    }, [api_url])
-
-    if (loading) {
+    if (loadingCountries) {
         return <h2>Loading...</h2>
     }
 
     const sortTopTen = (data, metric) =>
         [...(data ?? [])]
             .sort((a, b) => (b[metric] ?? 0) - (a[metric] ?? 0))
-            .slice(0, 10)
+            .slice(0, 15);
 
     const topCases = sortTopTen(countries, 'cases')
     const topTodayCases = sortTopTen(countries, 'todayCases')
@@ -51,16 +36,10 @@ export const TopTenCountries = () => {
 
     return (
         <div className="top-10-container">
-            <div className="top-10-header-row">
-                <h2>Total Cases</h2>
-                <h2>Today Cases</h2>
-                <h2>Deaths</h2>
-                <h2>Today Deaths</h2>
-                <h2>Active</h2>
-                <h2>Recovered</h2>
-            </div>
+
             <div className="top-10-columns">
                 <div className="top-10-column">
+                    <h2>Total Cases</h2>
                     {topCases.map((country) => (
                         <CardCountry key={`cases-${country.country}`}
                             flagUrl={country.countryInfo.flag}
@@ -69,6 +48,7 @@ export const TopTenCountries = () => {
                     ))}
                 </div>
                 <div className="top-10-column">
+                    <h2>Today Cases</h2>
                     {topTodayCases.map((country) => (
                         <CardCountry key={`today-cases-${country.country}`}
                             flagUrl={country.countryInfo.flag}
@@ -77,6 +57,7 @@ export const TopTenCountries = () => {
                     ))}
                 </div>
                 <div className="top-10-column">
+                    <h2>Deaths</h2>
                     {topDeaths.map((country) => (
                         <CardCountry key={`deaths-${country.country}`}
                             flagUrl={country.countryInfo.flag}
@@ -85,6 +66,7 @@ export const TopTenCountries = () => {
                     ))}
                 </div>
                 <div className="top-10-column">
+                    <h2>Today Deaths</h2>
                     {topTodayDeaths.map((country) => (
                         <CardCountry key={`today-deaths-${country.country}`}
                             flagUrl={country.countryInfo.flag}
@@ -93,6 +75,7 @@ export const TopTenCountries = () => {
                     ))}
                 </div>
                 <div className="top-10-column">
+                    <h2>Active</h2>
                     {topActive.map((country) => (
                         <CardCountry key={`active-${country.country}`}
                             flagUrl={country.countryInfo.flag}
@@ -101,6 +84,7 @@ export const TopTenCountries = () => {
                     ))}
                 </div>
                 <div className="top-10-column">
+                    <h2>Recovered</h2>
                     {topRecovered.map((country) => (
                         <CardCountry key={`recovered-${country.country}`}
                             flagUrl={country.countryInfo.flag}
