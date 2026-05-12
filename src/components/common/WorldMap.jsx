@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { memo, useCallback, useMemo, useState } from 'react'
 import { Icon } from '@iconify/react'
 import {
   ComposableMap,
@@ -15,8 +15,47 @@ const MIN_ZOOM = 1
 const MAX_ZOOM = 8
 const ZOOM_STEP = 1.5
 
+// Referencias estables — usadas como defaults / styles. Evitan invalidar useMemo y React.memo.
+const EMPTY_DATA = []
+
+const STYLE_WITH_DATUM = {
+  default: { outline: 'none', cursor: 'pointer' },
+  hover:   { outline: 'none', fill: HOVER_FILL, cursor: 'pointer' },
+  pressed: { outline: 'none', fill: HOVER_FILL },
+}
+const STYLE_NO_DATUM = {
+  default: { outline: 'none', cursor: 'default' },
+  hover:   { outline: 'none', fill: HOVER_FILL, cursor: 'default' },
+  pressed: { outline: 'none', fill: HOVER_FILL },
+}
+
+// Una forma de país. memo evita re-renders cuando solo cambia el cursor/hovered del padre.
+const CountryShape = memo(function CountryShape({
+  geo,
+  datum,
+  fill,
+  onEnter,
+  onMove,
+  onLeave,
+  onClick,
+}) {
+  return (
+    <Geography
+      geography={geo}
+      fill={fill}
+      stroke={STROKE}
+      strokeWidth={0.5}
+      onMouseEnter={(e) => onEnter(datum, e)}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      onClick={() => onClick(datum)}
+      style={datum ? STYLE_WITH_DATUM : STYLE_NO_DATUM}
+    />
+  )
+})
+
 export const WorldMap = ({
-  data = [],
+  data = EMPTY_DATA,
   getFill,
   onCountryClick,
   onCountryHover,
@@ -38,44 +77,47 @@ export const WorldMap = ({
     return m
   }, [data])
 
-  const handleEnter = (datum, e) => {
-    setHovered(datum ?? null)
-    setCursor({ x: e.clientX, y: e.clientY })
-    onCountryHover?.(datum ?? null)
-  }
-  const handleMove = (e) => setCursor({ x: e.clientX, y: e.clientY })
-  const handleLeave = () => {
+  const handleEnter = useCallback(
+    (datum, e) => {
+      setHovered(datum ?? null)
+      setCursor({ x: e.clientX, y: e.clientY })
+      onCountryHover?.(datum ?? null)
+    },
+    [onCountryHover],
+  )
+
+  const handleMove = useCallback((e) => setCursor({ x: e.clientX, y: e.clientY }), [])
+
+  const handleLeave = useCallback(() => {
     setHovered(null)
     onCountryHover?.(null)
-  }
-  const handleClick = (datum) => {
-    if (!datum) return
-    onCountryClick?.(datum)
-  }
+  }, [onCountryHover])
 
-  const zoomIn = () => setZoom((z) => Math.min(z * ZOOM_STEP, MAX_ZOOM))
-  const zoomOut = () => setZoom((z) => Math.max(z / ZOOM_STEP, MIN_ZOOM))
+  const handleClick = useCallback(
+    (datum) => {
+      if (!datum) return
+      onCountryClick?.(datum)
+    },
+    [onCountryClick],
+  )
+
+  const zoomIn  = useCallback(() => setZoom((z) => Math.min(z * ZOOM_STEP, MAX_ZOOM)), [])
+  const zoomOut = useCallback(() => setZoom((z) => Math.max(z / ZOOM_STEP, MIN_ZOOM)), [])
 
   const renderGeographies = (geographies) =>
     geographies.map((geo) => {
       const datum = lookup.get(String(geo.id).padStart(3, '0'))
       const fill = getFill?.(geo, datum) ?? DEFAULT_FILL
       return (
-        <Geography
+        <CountryShape
           key={geo.rsmKey}
-          geography={geo}
+          geo={geo}
+          datum={datum}
           fill={fill}
-          stroke={STROKE}
-          strokeWidth={0.5}
-          onMouseEnter={(e) => handleEnter(datum, e)}
-          onMouseMove={handleMove}
-          onMouseLeave={handleLeave}
-          onClick={() => handleClick(datum)}
-          style={{
-            default: { outline: 'none', cursor: datum ? 'pointer' : 'default' },
-            hover: { outline: 'none', fill: HOVER_FILL, cursor: datum ? 'pointer' : 'default' },
-            pressed: { outline: 'none', fill: HOVER_FILL },
-          }}
+          onEnter={handleEnter}
+          onMove={handleMove}
+          onLeave={handleLeave}
+          onClick={handleClick}
         />
       )
     })
