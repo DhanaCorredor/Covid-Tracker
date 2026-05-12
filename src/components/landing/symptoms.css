@@ -6,3 +6,181 @@
   transform: translateY(-5px);
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
+
+.symptoms-section {
+  width: 100%;
+  background-color: white;
+  padding-top: 6rem; /* py-24 */
+  padding-bottom: 6rem;
+  border-top: 1px solid var(--color-neutral-100); /* border-slate-100 */
+}
+
+.symptoms-container {
+  max-width: 80rem; /* max-w-7xl */
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .symptoms-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.symptoms-subtitle {
+  color: var(--color-text-secondary); /* text-slate-500 */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em; /* tracking-widest */
+  font-size: 0.875rem; /* text-sm */
+  margin-bottom: 1rem; /* mb-4 */
+  display: block;
+}
+
+.symptoms-title {
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: 800; /* font-extrabold */
+  color: var(--color-text-primary); /* text-slate-800 */
+  margin-bottom: 4rem; /* mb-16 */
+  line-height: 1.25; /* leading-tight */
+  max-width: 48rem; /* max-w-3xl */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .symptoms-title {
+    font-size: 3rem; /* md:text-5xl */
+  }
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  padding-left: 0.5rem; /* px-2 */
+  padding-right: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .carousel-wrapper {
+    padding-left: 3rem; /* md:px-12 */
+    padding-right: 3rem;
+  }
+}
+
+.carousel-nav-button {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 3rem; /* w-12 */
+  height: 3rem; /* h-12 */
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+  border-radius: 50%;
+  color: var(--color-purple-500); /* text-blue-600 */
+  border: 1px solid var(--color-neutral-100); /* border-slate-100 */
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.carousel-nav-button:hover {
+  background-color: var(--color-purple-50); /* hover:bg-blue-50 */
+}
+
+.carousel-nav-button:focus {
+  outline: none;
+}
+
+@media (min-width: 768px) {
+  .carousel-nav-button {
+    display: flex;
+  }
+}
+
+.carousel-nav-left {
+  left: 0;
+}
+
+.carousel-nav-right {
+  right: 0;
+}
+
+.carousel-nav-icon {
+  width: 1.5rem; /* w-6 */
+  height: 1.5rem; /* h-6 */
+}
+
+.carousel-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory; /* snap-x snap-mandatory */
+  scroll-behavior: smooth;
+  gap: 1.5rem; /* gap-6 */
+  width: 100%;
+  padding-top: 2rem; /* py-8 */
+  padding-bottom: 2rem;
+  -ms-overflow-style: none; /* hide scrollbar IE and Edge */
+  scrollbar-width: none; /* hide scrollbar Firefox */
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none; /* hide scrollbar Chrome, Safari and Opera */
+}
+
+.carousel-item {
+  flex: none;
+  width: 85%; /* w-[85%] */
+  scroll-snap-align: center; /* snap-center */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem; /* p-6 */
+  transition: transform 0.3s;
+}
+
+@media (min-width: 640px) {
+  .carousel-item {
+    width: calc(50% - 12px); /* sm:w-[calc(50%-12px)] */
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel-item {
+    width: calc(33.333% - 16px); /* lg:w-[calc(33.333%-16px)] */
+  }
+}
+
+.carousel-item:hover {
+  transform: translateY(-0.5rem); /* hover:-translate-y-2 */
+}
+
+.carousel-item-img {
+  width: 12rem; /* w-48 */
+  height: 12rem; /* h-48 */
+  object-fit: contain;
+  margin-bottom: 1.5rem; /* mb-6 */
+  filter: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08)); /* drop-shadow-xl */
+}
+
+.carousel-item-title {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: 700; /* font-bold */
+  color: var(--color-text-primary); /* text-slate-800 */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.carousel-item-desc {
+  color: var(--color-text-secondary); /* text-slate-600 */
+  text-align: center;
+  line-height: 1.625; /* leading-relaxed */
+}
+
