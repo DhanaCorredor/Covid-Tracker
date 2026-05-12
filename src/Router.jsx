@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { Tracker3 } from "./pages/Tracker3";
 import { UnderConstruction } from "./components/common/UnderConstruction";
 import { DashboardLayout } from "./pages/DashboardLayout";
@@ -7,18 +7,21 @@ import { LandingPage } from "./pages/LandingPage";
 import { Tracker2 } from "./pages/Tracker2";
 import { Tracker5 } from "./pages/Tracker5";
 import { Tracker6 } from "./pages/Tracker6";
-import { Tracker4 } from "./pages/Tracker4";
 
 export const Router = () => {
   return (
     <Routes>
+<<<<<<< HEAD
       <Route path="/" element={<LandingPage/>} />
+=======
+      <Route path="/" element={<Navigate to="/dashboard" replace />} />
+>>>>>>> 09ebb51807a95f248b8f7e3064a67b0d77a05634
       <Route path="/dashboard" element={<DashboardLayout />}>
         {/* Aqui las reemplazo por las páginas reales :D */}
         <Route index            element={<Tracker1 />} />  {/* → <DashboardPage /> */}
         <Route path="reports"   element={<Tracker2 />} />    {/* → <ReportsPage /> */}
         <Route path="apps"      element={<Tracker3/>} />       {/* → <AppsPage /> */}
-        <Route path="projects"  element={<Tracker4 />} />   {/* → <ProjectsPage /> */}
+        <Route path="projects"  element={<UnderConstruction name="Projects" />} />   {/* → <ProjectsPage /> */}
         <Route path="files"     element={<UnderConstruction name="Files" />} />      {/* → <FilesPage /> */}
         <Route path="analytics" element={<Tracker5 />} />  {/* → <AnalyticsPage /> */}
         <Route path="world"     element={<Tracker6 />} />      {/* → <WorldPage /> */}
