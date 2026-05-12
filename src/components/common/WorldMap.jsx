@@ -15,7 +15,6 @@ const MIN_ZOOM = 1
 const MAX_ZOOM = 8
 const ZOOM_STEP = 1.5
 
-// Referencias estables — usadas como defaults / styles. Evitan invalidar useMemo y React.memo.
 const EMPTY_DATA = []
 
 const STYLE_WITH_DATUM = {
@@ -29,7 +28,6 @@ const STYLE_NO_DATUM = {
   pressed: { outline: 'none', fill: HOVER_FILL },
 }
 
-// Una forma de país. memo evita re-renders cuando solo cambia el cursor/hovered del padre.
 const CountryShape = memo(function CountryShape({
   geo,
   datum,
