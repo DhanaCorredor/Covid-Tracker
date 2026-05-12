@@ -30,13 +30,13 @@ export const SidebarData = () => {
 
       <div>
         <h2 className=" text-heading-lg text-blue-950 mb-6">
-          Top 10 Country
+          Top 10 Countries
         </h2>
 
         <div className="w-full">
           <ul className="flex flex-col w-full ">
             {loadingCountries ? (
-              <li className="p-4 text-center text-gray-500 italic">Cargando países...</li>
+              <li className="p-4 text-center text-gray-500 italic">Loading countries...</li>
             ) : (
               top10.map((country) => (
                 <li key={country.country}>

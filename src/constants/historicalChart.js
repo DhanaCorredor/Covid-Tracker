@@ -1,14 +1,14 @@
 export const COUNTRIES = ['USA', 'Spain', 'Italy', 'Germany']
 
 export const SERIES = [
-  { key: 'confirmed', label: 'Confirmed', color: '#3b82f6' },
-  { key: 'deaths',    label: 'Death',     color: '#ef4444' },
-  { key: 'recovered', label: 'Recovered', color: '#22c55e' },
+  { key: 'confirmed', label: 'Confirmed', color: 'var(--color-total-active)' },
+  { key: 'deaths',    label: 'Death',     color: 'var(--color-map-red-3)' },
+  { key: 'recovered', label: 'Recovered', color: 'var(--color-status-recovered)' },
 ]
 
 export const METRIC_FILTER_OPTIONS = [
-  { value: 'all',       label: 'Todas las métricas' },
-  { value: 'confirmed', label: 'Casos' },
-  { value: 'deaths',    label: 'Muertes' },
-  { value: 'recovered', label: 'Recuperados' },
+  { value: 'all',       label: 'All metrics' },
+  { value: 'confirmed', label: 'Cases' },
+  { value: 'deaths',    label: 'Deaths' },
+  { value: 'recovered', label: 'Recovered' },
 ]

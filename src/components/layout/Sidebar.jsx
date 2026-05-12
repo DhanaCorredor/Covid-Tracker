@@ -6,7 +6,7 @@ const itemBase =
   'grid h-11 w-11 place-items-center rounded-xl transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700'
 
 const itemClass = ({ isActive }) =>
-  `${itemBase} ${isActive ? 'bg-purple-700 text-white' : 'bg-transparent text-purple-700 hover:bg-purple-700 hover:text-white'}`
+  `${itemBase} ${isActive ? 'bg-purple-700 text-neutral-0' : 'bg-transparent text-purple-700 hover:bg-purple-700 hover:text-neutral-0'}`
 
 export const Sidebar = () => {
   return (
@@ -34,7 +34,7 @@ export const Sidebar = () => {
         type="button"
         aria-label="More options"
         title="More"
-        className="grid h-11 w-11 cursor-pointer place-items-center rounded-full border-0 bg-purple-700 text-white transition-opacity hover:opacity-90"
+        className="grid h-11 w-11 cursor-pointer place-items-center rounded-full border-0 bg-purple-700 text-neutral-0 transition-opacity hover:opacity-90"
       >
         <Icon icon="mdi:dots-horizontal" width={20} height={20} />
       </button>

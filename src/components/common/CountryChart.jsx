@@ -89,7 +89,7 @@ export function CountryChart({
         {!loading && !error && series.length > 0 && (
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={series} margin={{ top: 8, right: 12, bottom: 8, left: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--color-border-strong)" />
               <XAxis
                 dataKey="date"
                 tick={{ fontSize: 10 }}

@@ -2,10 +2,10 @@
   width: 100%;
   padding-top: 6rem;
   padding-bottom: 6rem;
-  background-image: url('/images/bg-header.jpg');
+  background-image: url('/images/bg-header.webp');
   background-size: cover;
   background-position: center;
-  color: white;
+  color: var(--color-neutral-0);
 }
 
 .faqs-header {
@@ -34,7 +34,7 @@
 .faqs-title {
   font-size: 2.25rem;
   font-weight: 800;
-  color: white;
+  color: var(--color-neutral-0);
   margin-bottom: 2.5rem;
 }
 
@@ -75,6 +75,13 @@
 
 .faq-item {
   cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  display: block;
 }
 
 .faq-question {
@@ -85,11 +92,11 @@
 }
 
 .faq-question:hover {
-  color: white;
+  color: var(--color-neutral-0);
 }
 
 .faq-question.open {
-  color: white;
+  color: var(--color-neutral-0);
 }
 
 @media (min-width: 768px) {
@@ -107,34 +114,5 @@
 
 .faq-card:hover {
   background-color: var(--color-purple-700);
-}
-
-.footer-section {
-  background-color: var(--color-bg-landing-footer);
-  color: var(--color-neutral-300);
-}
-
-.footer-link {
-  transition: color 0.2s ease;
-}
-
-.footer-link:hover {
-  color: #fff;
-}
-
-.social-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s ease;
-}
-
-.social-icon:hover {
-  background-color: var(--color-purple-500);
-  color: white;
 }
 

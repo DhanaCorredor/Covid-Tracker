@@ -34,6 +34,7 @@
   --color-status-death-cases:    #3639AE; /* azul oscuro*/
   --color-status-death-cases-bg: #EEFBFF; /* azul claro de fondo */
   --color-status-death:          #B70202; /* rojo oscuro */
+  --color-status-critical:       #EAB308; /* amarillo/naranja crítico */
   --color-total-active:          #3B82F6; /* azul */
   --color-hover-map1:            #7374C5; /* azul claro de fondo */
 

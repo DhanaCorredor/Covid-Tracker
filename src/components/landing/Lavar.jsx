@@ -1,4 +1,5 @@
 import './Lavar.css';
+import { WashStep } from './WashStep';
 
 export const Lavar = ({ steps }) => {
   return (
@@ -13,13 +14,7 @@ export const Lavar = ({ steps }) => {
 
           <div className="lavar-grid">
             {steps && steps.map((step) => (
-              <div key={step.num} className="lavar-step">
-                <div className="lavar-step-circle">
-                  <div className="lavar-step-number">{step.num}</div>
-                  <img src={step.imgSrc} alt={step.title} className="lavar-step-img" />
-                </div>
-                <h3 className="lavar-step-title">{step.title}</h3>
-              </div>
+              <WashStep key={step.num} {...step} />
             ))}
           </div>
         </div>

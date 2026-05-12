@@ -24,7 +24,7 @@ export const Download = () => {
           </div>
           {/* Mockup Placeholder */}
           <div className="download-image-container">
-            <img src="/images/phone_mockup.png" className="download-image" alt="App Mockup" />
+            <img src="/images/phone_mockup.webp" className="download-image" alt="App Mockup" />
           </div>
         </div>
       </div>

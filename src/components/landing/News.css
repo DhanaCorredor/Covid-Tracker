@@ -32,7 +32,7 @@
 }
 
 .news-card {
-  background-color: white;
+  background-color: var(--color-neutral-0);
   border-radius: 0.75rem; /* rounded-xl */
   overflow: hidden;
   border: 1px solid var(--color-border-default); /* border-slate-200 */

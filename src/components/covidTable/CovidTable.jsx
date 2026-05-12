@@ -34,7 +34,7 @@ export const CovidTable = () => {
         initialState: { pagination: { pageSize: 10 } },
     });
 
-    if (loading) return <p>Cargando...</p>;
+    if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;
 
     return (

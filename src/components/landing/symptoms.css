@@ -9,7 +9,7 @@
 
 .symptoms-section {
   width: 100%;
-  background-color: white;
+  background-color: var(--color-neutral-0);
   padding-top: 6rem; /* py-24 */
   padding-bottom: 6rem;
   border-top: 1px solid var(--color-neutral-100); /* border-slate-100 */
@@ -82,7 +82,7 @@
   height: 3rem; /* h-12 */
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: var(--color-neutral-0);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
   border-radius: 50%;
   color: var(--color-purple-500); /* text-blue-600 */
@@ -163,12 +163,23 @@
   transform: translateY(-0.5rem); /* hover:-translate-y-2 */
 }
 
+.hexagon-container {
+  width: 7.5rem;
+  height: 7.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background-color: var(--color-purple-50, #f8fafc);
+}
+
 .carousel-item-img {
-  width: 12rem; /* w-48 */
-  height: 12rem; /* h-48 */
+  width: 4rem; /* w-16 */
+  height: 4rem; /* h-16 */
   object-fit: contain;
-  margin-bottom: 1.5rem; /* mb-6 */
-  filter: drop-shadow(0 20px 13px rgba(0, 0, 0, 0.03)) drop-shadow(0 8px 5px rgba(0, 0, 0, 0.08)); /* drop-shadow-xl */
+  margin-bottom: 0;
+  filter: none;
 }
 
 .carousel-item-title {
