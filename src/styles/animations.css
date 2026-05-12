@@ -12,9 +12,14 @@
   animation-play-state: running;
 }
 
+.icon-sidebar {
+  animation: spin-slow 4s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .metric-icon-spin,
-  .group:hover .metric-icon-spin {
+  .group:hover .metric-icon-spin,
+  .icon-sidebar {
     animation: none;
   }
 }
