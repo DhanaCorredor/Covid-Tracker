@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import {
   CartesianGrid,
   Line,
@@ -36,29 +37,41 @@ function buildSeries(timeline) {
 function CustomTooltip({ active, payload, label }) {
   if (!active || !payload?.length) return null
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-2 text-xs shadow-md">
-      <p className="mb-1 font-medium text-gray-700">{label}</p>
+    <div className="rounded-md border border-border-default bg-neutral-0 p-sm text-body-sm shadow-md">
+      <p className="mb-xs font-medium text-text-primary">{label}</p>
       {payload.map((p) => (
-        <p key={p.dataKey} className="flex justify-between gap-3">
+        <p key={p.dataKey} className="flex justify-between gap-md">
           <span style={{ color: p.color }}>{p.name}</span>
-          <span className="font-medium text-gray-800">{formatCompact(p.value)}</span>
+          <span className="font-medium text-text-primary">{formatCompact(p.value)}</span>
         </p>
       ))}
     </div>
   )
 }
 
-export function CountryChart({ country, days = 1400, showTitle = true }) {
+export function CountryChart({
+  country,
+  days = 1400,
+  showTitle = true,
+  metric = 'all',
+  fillHeight = false,
+}) {
   const { data, loading, error } = useHistoricalData(country, days)
-  const series = buildSeries(data?.timeline)
+  const series = useMemo(() => buildSeries(data?.timeline), [data])
+  const visibleSeries = useMemo(
+    () => (metric === 'all' ? SERIES : SERIES.filter((s) => s.key === metric)),
+    [metric],
+  )
 
   return (
-    <div className="rounded-xl bg-white p-4 shadow-sm">
-      <div className="mb-3 flex items-center justify-between">
-        {showTitle && <h3 className="text-lg font-semibold text-gray-800">{country}</h3>}
-        <ul className="m-0 flex list-none gap-3 p-0 text-xs text-gray-600">
-          {SERIES.map((s) => (
-            <li key={s.key} className="flex items-center gap-1.5">
+    <div className={`rounded-lg bg-neutral-0 p-md shadow-sm ${fillHeight ? 'flex h-full min-h-0 flex-col' : ''}`}>
+      <div className="mb-sm flex flex-col gap-sm sm:flex-row sm:items-center sm:justify-between">
+        {showTitle && (
+          <h3 className="text-heading-sm text-text-primary">{country}</h3>
+        )}
+        <ul className="m-0 flex shrink-0 list-none flex-wrap gap-md p-0 text-body-sm text-text-secondary">
+          {visibleSeries.map((s) => (
+            <li key={s.key} className="flex items-center gap-xs">
               <span
                 aria-hidden="true"
                 className="inline-block h-2.5 w-2.5 rounded-full"
@@ -70,9 +83,9 @@ export function CountryChart({ country, days = 1400, showTitle = true }) {
         </ul>
       </div>
 
-      <div className="h-64 w-full min-w-75">
-        {loading && <p className="text-sm text-gray-500">Loading…</p>}
-        {error && <p className="text-sm text-red-500">{error.message}</p>}
+      <div className={`w-full ${fillHeight ? 'min-h-0 flex-1' : 'h-64'}`}>
+        {loading && <p className="text-body-md text-text-secondary">Loading…</p>}
+        {error && <p className="text-body-md text-status-cases">{error.message}</p>}
         {!loading && !error && series.length > 0 && (
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={series} margin={{ top: 8, right: 12, bottom: 8, left: 0 }}>
@@ -86,7 +99,7 @@ export function CountryChart({ country, days = 1400, showTitle = true }) {
               />
               <YAxis tick={{ fontSize: 10 }} tickFormatter={formatCompact} width={40} />
               <Tooltip content={<CustomTooltip />} />
-              {SERIES.map((s) => (
+              {visibleSeries.map((s) => (
                 <Line
                   key={s.key}
                   type="natural"

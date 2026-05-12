@@ -5,3 +5,10 @@ export const SERIES = [
   { key: 'deaths',    label: 'Death',     color: '#ef4444' },
   { key: 'recovered', label: 'Recovered', color: '#22c55e' },
 ]
+
+export const METRIC_FILTER_OPTIONS = [
+  { value: 'all',       label: 'Todas las métricas' },
+  { value: 'confirmed', label: 'Casos' },
+  { value: 'deaths',    label: 'Muertes' },
+  { value: 'recovered', label: 'Recuperados' },
+]
