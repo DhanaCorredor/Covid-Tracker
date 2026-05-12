@@ -2,7 +2,6 @@
     {
       title: "Total Cases",
       value: globalData?.cases,
-      change: globalData?.todayCases,
       color: "red",
     },
     {
@@ -13,13 +12,11 @@
     {
       title: "Recovered Cases",
       value: globalData?.recovered,
-      change: globalData?.todayRecovered,
       color: "green",
     },
     {
       title: "Deaths",
       value: globalData?.deaths,
-      change: globalData?.todayDeaths,
       color: "blue",
     },
   ];
