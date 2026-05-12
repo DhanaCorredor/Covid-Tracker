@@ -1,14 +1,19 @@
-import { useEffect, useId } from 'react'
+import { useEffect, useId, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { Icon } from '@iconify/react'
 
 export const Modal = ({ isOpen, onClose, title, children }) => {
   const titleId = useId()
+  // Guardamos la última referencia de onClose en un ref para no re-registrar
+  // el listener de teclado cada vez que el padre re-renderiza con un onClose nuevo.
+  // Equivalente a useEffectEvent (aún no disponible en React 19.2 stable).
+  const onCloseRef = useRef(onClose)
+  useEffect(() => { onCloseRef.current = onClose })
 
   useEffect(() => {
     if (!isOpen) return
     const handleKey = (e) => {
-      if (e.key === 'Escape') onClose?.()
+      if (e.key === 'Escape') onCloseRef.current?.()
     }
     document.addEventListener('keydown', handleKey)
     const prevOverflow = document.body.style.overflow
@@ -17,7 +22,7 @@ export const Modal = ({ isOpen, onClose, title, children }) => {
       document.removeEventListener('keydown', handleKey)
       document.body.style.overflow = prevOverflow
     }
-  }, [isOpen, onClose])
+  }, [isOpen])
 
   if (!isOpen) return null
 
@@ -26,6 +31,9 @@ export const Modal = ({ isOpen, onClose, title, children }) => {
   }
 
   return createPortal(
+    // El cierre por teclado del backdrop ya está cubierto por Escape (ver useEffect).
+    // El div es role="dialog" — no debe ser focusable ni interpretarse como botón.
+    // oxlint-disable-next-line click-events-have-key-events
     <div
       role="dialog"
       aria-modal="true"

@@ -17,7 +17,7 @@ export class ErrorBoundary extends Component {
           <p className="text-heading-md font-semibold text-status-cases">Algo salió mal</p>
           <p className="text-body-md text-neutral-500">{this.state.message}</p>
           <button
-            className="px-lg py-sm bg-purple-500 text-neutral-0 rounded-md"
+            className="px-lg py-sm bg-purple-700 text-neutral-0 rounded-md font-semibold cursor-pointer"
             onClick={() => this.setState({ hasError: false, message: '' })}
           >
             Reintentar

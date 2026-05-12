@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useReducer, useEffect } from 'react'
 import axios from 'axios'
 import { parseApiError } from '../utils/errors'
 
@@ -7,10 +7,26 @@ import { parseApiError } from '../utils/errors'
 // deps: dependencias del useEffect (re-ejecuta la llamada cuando cambian).
 // options.skip: si true, no ejecuta la llamada (útil cuando falta un parámetro).
 // options.initialData: valor inicial de data (null por defecto, [] si esperas un array).
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'fetch/start':
+      return { ...state, loading: true, error: null }
+    case 'fetch/success':
+      return { data: action.payload, loading: false, error: null }
+    case 'fetch/error':
+      return { ...state, loading: false, error: action.payload }
+    default:
+      return state
+  }
+}
+
 export function useApi(asyncFn, deps = [], { skip = false, initialData = null } = {}) {
-  const [data, setData]       = useState(initialData)
-  const [loading, setLoading] = useState(!skip)
-  const [error, setError]     = useState(null)
+  const [state, dispatch] = useReducer(reducer, {
+    data: initialData,
+    loading: !skip,
+    error: null,
+  })
 
   useEffect(() => {
     if (skip) return // no tocamos estado; lo derivamos en el return
@@ -18,17 +34,17 @@ export function useApi(asyncFn, deps = [], { skip = false, initialData = null } 
     const controller = new AbortController()
 
     async function run() {
+      dispatch({ type: 'fetch/start' })
       try {
-        setLoading(true)
-        setError(null)
         const result = await asyncFn(controller.signal)
-        setData(result)
+        if (!controller.signal.aborted) {
+          dispatch({ type: 'fetch/success', payload: result })
+        }
       } catch (err) {
         if (axios.isCancel(err)) return // request cancelado, ignorar
-        setError(parseApiError(err))
-      } finally {
-        // si fue cancelado no tocamos el estado: el componente ya no lo necesita
-        if (!controller.signal.aborted) setLoading(false)
+        if (!controller.signal.aborted) {
+          dispatch({ type: 'fetch/error', payload: parseApiError(err) })
+        }
       }
     }
 
@@ -39,5 +55,9 @@ export function useApi(asyncFn, deps = [], { skip = false, initialData = null } 
   }, deps)
 
   // Si skip=true, loading siempre es false aunque internamente quedara true por una cancelación
-  return { data, loading: skip ? false : loading, error }
+  return {
+    data: state.data,
+    loading: skip ? false : state.loading,
+    error: state.error,
+  }
 }

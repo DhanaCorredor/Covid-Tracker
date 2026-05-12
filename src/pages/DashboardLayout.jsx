@@ -13,7 +13,7 @@ export const DashboardLayout = () => {
             <SidebarData />
           </div>
         </div>
-        <main className="flex-1 p-lg">
+        <main className="flex-1 p-lg h-svh overflow-y-auto">
           <Outlet />
         </main>
       </div>
