@@ -1,5 +1,4 @@
-import React from 'react';
-import { StatCard } from "./StatCard";
+import { CardSidebar } from "./CardSidebar";
 import { CountryRow } from "./CountryRow";
 import { stats } from "../../../constants/SidebarData";
 import { useGlobalTotals } from "../../../hooks/useGlobalTotals";
@@ -17,7 +16,7 @@ export const SidebarData = () => {
 
       <div className="flex flex-col">
         {stats(globalData).map((stat) => (
-          <StatCard
+          <CardSidebar
             key={stat.title}
             title={stat.title}
             value={stat.value}

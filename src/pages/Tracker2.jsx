@@ -1,4 +1,3 @@
-import React from 'react'
 import { CovidTable } from '../components/covidTable/CovidTable'
 
 export const Tracker2 = () => {

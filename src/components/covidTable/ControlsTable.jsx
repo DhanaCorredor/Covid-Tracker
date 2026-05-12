@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 export const ControlsTable = ({ table, globalFilter, setGlobalFilter }) => {
     return (

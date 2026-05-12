@@ -1,11 +1,9 @@
-import React from "react";
 import { styles } from "../../../constants/SidebarData";
 import { formatNumber } from '../../../utils/format';
 
-export const StatCard = ({ title, value, color }) => {
-  return (
-    
-    <div
+export const CardSidebar = ({title, value, color}) => {
+    return (
+        <div
       className={`
         flex justify-between items-center mb-3 p-3 rounded-xs shadow-sm 
         border-2 border-transparent 
@@ -20,6 +18,7 @@ export const StatCard = ({ title, value, color }) => {
       <h2 className="text-heading-md font-semibold tracking-tight">
         {formatNumber(value)}
       </h2>
+
     </div>
-  );
-};
+    )
+}

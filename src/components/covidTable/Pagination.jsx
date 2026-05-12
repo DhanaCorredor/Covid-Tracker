@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 export const Pagination = ({ table }) => {
     const { pageIndex, pageSize } = table.getState().pagination;
