@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { Tracker3 } from "./pages/Tracker3";
 import { UnderConstruction } from "./components/common/UnderConstruction";
 import { DashboardLayout } from "./pages/DashboardLayout";
@@ -11,6 +11,7 @@ import { Tracker4 } from "./pages/Tracker4";
 export const Router = () => {
   return (
     <Routes>
+      <Route path="/" element={<Navigate to="/dashboard" replace />} />
       <Route path="/dashboard" element={<DashboardLayout />}>
         {/* Aqui las reemplazo por las páginas reales :D */}
         <Route index            element={<Tracker1 />} />  {/* → <DashboardPage /> */}
