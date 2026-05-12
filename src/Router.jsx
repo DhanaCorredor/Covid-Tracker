@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
-import { ApiTest } from "./components/common/ApiTest";
 import { UnderConstruction } from "./components/common/UnderConstruction";
 import { DashboardLayout } from "./pages/DashboardLayout";
 import { Tracker1 } from "./pages/Tracker1";
 import { Tracker5 } from "./pages/Tracker5";
+import { Tracker6 } from "./pages/Tracker6";
 
 export const Router = () => {
   return (
@@ -16,11 +16,9 @@ export const Router = () => {
         <Route path="projects"  element={<UnderConstruction name="Projects" />} />   {/* → <ProjectsPage /> */}
         <Route path="files"     element={<UnderConstruction name="Files" />} />      {/* → <FilesPage /> */}
         <Route path="analytics" element={<Tracker5 />} />  {/* → <AnalyticsPage /> */}
-        <Route path="world"     element={<UnderConstruction name="World" />} />      {/* → <WorldPage /> */}
+        <Route path="world"     element={<Tracker6 />} />      {/* → <WorldPage /> */}
         <Route path="messages"  element={<UnderConstruction name="Messages" />} />   {/* → <MessagesPage /> */}
       </Route>
-
-      <Route path="/api-test" element={<ApiTest />} />
     </Routes>
   );
 };
