@@ -16,15 +16,15 @@ function ErrorFallback({ message, onRetry }) {
 
         <span className="inline-flex items-center gap-xs px-md py-xs rounded-full bg-status-cases-bg text-status-cases text-label-sm font-semibold">
           <Icon icon="mdi:alert-circle-outline" width={14} height={14} />
-          Algo se rompió
+          Something went wrong
         </span>
 
         <div className="flex flex-col gap-sm">
           <h2 className="text-heading-xl font-semibold text-text-primary">
-            ¡Uy! Parece que perdimos <span className="text-purple-700">el rastro</span>
+            Oops! Looks like we lost <span className="text-purple-700">track</span>
           </h2>
           <p className="text-body-md text-text-secondary">
-            Algo no salió como esperábamos mientras cargábamos los datos. Intenta de nuevo o vuelve al inicio para seguir explorando el tracker.
+            Something didn't go as expected while loading the data. Try again or go back to the home page to keep exploring the tracker.
           </p>
           {message && (
             <p className="text-label-sm text-text-secondary italic">
@@ -40,7 +40,7 @@ function ErrorFallback({ message, onRetry }) {
             onClick={onRetry}
           >
             <Icon icon="mdi:refresh" width={18} height={18} />
-            Reintentar
+            Retry
           </button>
           <button
             type="button"
@@ -48,7 +48,7 @@ function ErrorFallback({ message, onRetry }) {
             onClick={() => navigate('/')}
           >
             <Icon icon="mdi:home-outline" width={18} height={18} />
-            Volver al inicio
+            Back to home
           </button>
         </div>
       </div>
@@ -63,7 +63,7 @@ export class ErrorBoundary extends Component {
   }
 
   static getDerivedStateFromError(err) {
-    return { hasError: true, message: err.message || 'Error inesperado' }
+    return { hasError: true, message: err.message || 'Unexpected error' }
   }
 
   render() {
