@@ -54,6 +54,7 @@ export function CountryChart({
   days = 1400,
   showTitle = true,
   metric = 'all',
+  fillHeight = false,
 }) {
   const { data, loading, error } = useHistoricalData(country, days)
   const series = useMemo(() => buildSeries(data?.timeline), [data])
@@ -63,7 +64,7 @@ export function CountryChart({
   )
 
   return (
-    <div className="rounded-lg bg-neutral-0 p-md shadow-sm">
+    <div className={`rounded-lg bg-neutral-0 p-md shadow-sm ${fillHeight ? 'flex h-full min-h-0 flex-col' : ''}`}>
       <div className="mb-sm flex flex-col gap-sm sm:flex-row sm:items-center sm:justify-between">
         {showTitle && (
           <h3 className="text-heading-sm text-text-primary">{country}</h3>
@@ -82,7 +83,7 @@ export function CountryChart({
         </ul>
       </div>
 
-      <div className="h-64 w-full">
+      <div className={`w-full ${fillHeight ? 'min-h-0 flex-1' : 'h-64'}`}>
         {loading && <p className="text-body-md text-text-secondary">Loading…</p>}
         {error && <p className="text-body-md text-status-cases">{error.message}</p>}
         {!loading && !error && series.length > 0 && (

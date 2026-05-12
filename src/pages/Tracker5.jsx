@@ -8,7 +8,7 @@ export function Tracker5() {
   const [metric, setMetric] = useState('all')
 
   return (
-    <section className="w-full px-md pb-md">
+    <section className="flex h-[calc(100svh-3rem)] w-full flex-col px-md pb-md">
       <FilterBar>
         <Select
           value={metric}
@@ -19,9 +19,9 @@ export function Tracker5() {
         />
       </FilterBar>
 
-      <div className="grid grid-cols-1 gap-md md:grid-cols-2 mt-sm">
+      <div className="mt-sm grid min-h-0 flex-1 grid-cols-1 gap-md md:grid-cols-2">
         {COUNTRIES.map((country) => (
-          <CountryChart key={country} country={country} metric={metric} />
+          <CountryChart key={country} country={country} metric={metric} fillHeight />
         ))}
       </div>
     </section>
