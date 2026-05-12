@@ -4,6 +4,7 @@ import { formatNumber } from '../../../utils/format';
 
 export const StatCard = ({ title, value, color }) => {
   return (
+    
     <div
       className={`
         flex justify-between items-center mb-3 p-3 rounded-xs shadow-sm 
