@@ -33,7 +33,7 @@ export const Sidebar = () => {
       <span
         aria-hidden="true"
         title="More"
-        className="grid h-11 w-11 cursor-default place-items-center rounded-full bg-purple-700 text-white"
+        className="grid h-11 w-11 cursor-default place-items-center rounded-full bg-purple-700 text-neutral-0"
       >
         <Icon icon="mdi:dots-horizontal" width={20} height={20} />
       </span>

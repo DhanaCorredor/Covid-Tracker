@@ -34,7 +34,7 @@ export const CovidTable = () => {
         initialState: { pagination: { pageSize: 10 } },
     });
 
-    if (loading) return <p>Cargando...</p>;
+    if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;
 
     return (
@@ -45,7 +45,7 @@ export const CovidTable = () => {
                 setGlobalFilter={setGlobalFilter}
             />
             
-            <div className="flex-1 min-h-0 overflow-auto border-b border-neutral-200">
+            <div className="flex-1 min-h-0 overflow-x-auto overflow-y-auto border-b border-neutral-200">
                 <table className="w-full border-collapse min-w-max">
                     <thead>
                         {table.getHeaderGroups().map((hg) => (
