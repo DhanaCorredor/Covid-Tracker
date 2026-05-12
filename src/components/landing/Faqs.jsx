@@ -37,7 +37,7 @@ export const Faqs = () => {
 
   return (
     <>
-      <div className="faqs-section w-full py-24">
+      <div id="faqs" className="faqs-section w-full py-24">
         <div className="max-w-3xl mx-auto px-4 md:px-8 text-center mb-12">
           <span className="text-slate-400 font-bold uppercase tracking-widest text-xs mb-4 block">
             Faq

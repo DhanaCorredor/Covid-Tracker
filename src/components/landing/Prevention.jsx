@@ -12,7 +12,7 @@ export default function Prevention() {
 
   return (
     <>
-      <div className="w-full bg-slate-50 py-24">
+      <div id="prevention" className="w-full bg-slate-50 py-24">
         <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
           <span className="text-slate-500 font-bold uppercase tracking-widest text-sm mb-4 block">
             Prevent
