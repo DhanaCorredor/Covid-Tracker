@@ -11,19 +11,19 @@ export const Faqs = () => {
     },
     {
       q: '02. What are the symptoms of COVID-19?',
-      a: ''
+      a: 'The most common symptoms are fever, dry cough, and tiredness. Other symtoms may include loss of taste or smell, nasal congestiom, sore throat, headache, and muscle aches.'
     },
     {
       q: '03. Should I wear mask?',
-      a: ''
+      a: 'Yes, wearing a mask is recomended, especially in crowded indoor spaces or where physical distancing is not possible. It healps prevent the spread of the virus to others.'
     },
     {
       q: '04. What does it mean to self-isolate?',
-      a: ''
+      a: 'Self-isolation means staying at home and separate from others because you are sick or habe tested positive for COVID-19. It is crucial to avoid spreading the infection to your community and household.'
     },
     {
       q: '05. Can children or adolescents catch COVID-19?',
-      a: ''
+      a: 'Yes, people of all ages can be infected and transmit the virus. While children and adolescenys generally have milder symptoms, they can still become seriously ill and spread the virus to others.'
     },
     {
       q: '06. Is there a vaccine or drug for COVID-19?',
@@ -37,7 +37,7 @@ export const Faqs = () => {
 
   return (
     <>
-      <div id="faqs" className="faqs-section w-full py-24">
+      <div className="faqs-section w-full py-24">
         <div className="max-w-3xl mx-auto px-4 md:px-8 text-center mb-12">
           <span className="text-slate-400 font-bold uppercase tracking-widest text-xs mb-4 block">
             Faq
