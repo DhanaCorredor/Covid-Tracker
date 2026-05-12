@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MetricCard } from "../components/common/MetricCard";
 import { MetricCardAll } from "../components/common/MetricCardAll";
 import { Select } from "../components/common/Select";
+import { FilterBar } from "../components/common/FilterBar";
 import { WorldMap } from "../components/common/WorldMap";
 import { CountryDetailModal } from "../components/common/CountryDetailModal";
 import { useCountry } from "../hooks/useCountry";
@@ -38,7 +39,13 @@ export const Tracker1 = () => {
 
   return (
     <div>
-      <div className="flex flex-col gap-md md:flex-row justify-between items-center border-b border-neutral-200 pb-md">
+      <FilterBar
+        rightSlot={
+          <p className="text-label-md">
+            Updated: {formatDate(countryData?.updated)}
+          </p>
+        }
+      >
         <Select
           value={country}
           onChange={setCountry}
@@ -46,10 +53,7 @@ export const Tracker1 = () => {
           ariaLabel="Country"
           className="md:max-w-60"
         />
-        <p className="text-label-md">
-          Updated: {formatDate(countryData?.updated)}
-        </p>
-      </div>
+      </FilterBar>
 
       <div className="flex flex-col md:flex-row gap-xl mt-lg">
         <div className="grid grid-cols-2 gap-lg md:flex-1 xl:basis-2/5 h-fit">

@@ -1,46 +1,43 @@
-import { Link, useLocation } from "react-router-dom";
-import { Icon } from "@iconify/react";
-import { navItems } from "../../../constants/navicon";
+import { Link, NavLink } from 'react-router-dom'
+import { Icon } from '@iconify/react'
+import { navItems } from '../../constants/navicon'
+
+const itemBase =
+  'grid h-11 w-11 place-items-center rounded-xl transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-700'
+
+const itemClass = ({ isActive }) =>
+  `${itemBase} ${isActive ? 'bg-purple-700 text-white' : 'bg-transparent text-purple-700 hover:bg-purple-700 hover:text-white'}`
 
 export const Sidebar = () => {
-  const location = useLocation();
-
   return (
-    <div className="w-64 bg-white text-slate-800 min-h-screen p-6 border-r border-slate-200 shadow-sm flex flex-col hidden md:flex">
-      <div className="flex items-center gap-3 mb-10">
-        <img src="/images/covid-blue.svg" alt="logo" className="w-8 h-8 object-contain" />
-        <h2 className="text-2xl font-bold text-[#1C274C]">COVIMAP</h2>
-      </div>
-      
-      <nav className="flex flex-col gap-2 flex-grow">
-        {navItems.map((item, index) => {
-          const isActive = location.pathname === item.path;
-          return (
-            <Link
-              key={index}
-              to={item.path}
-              className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-colors font-medium ${
-                isActive 
-                  ? "bg-blue-50 text-blue-600 shadow-sm border border-blue-100" 
-                  : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"
-              }`}
-            >
-              <Icon icon={item.icon} className={`w-6 h-6 ${isActive ? "text-blue-600" : "text-slate-400"}`} />
-              {item.label}
-            </Link>
-          );
-        })}
+    <aside
+      aria-label="Main navigation"
+      className="flex md:w-22 min-h-svh flex-col items-center gap-1.5 bg-neutral-100 py-4.5 box-border"
+    >
+      <Link to="/dashboard" aria-label="Covid Tracker — go to dashboard" className="grid h-11 w-11 place-items-center">
+        <img src="/images/coronavirus.png" alt="Covid Tracker" className="icon-sidebar block h-8 w-8 object-contain" />
+      </Link>
+
+      <nav className="w-full flex-1">
+        <ul className="m-0 flex list-none flex-col items-center gap-1.5 p-0">
+          {navItems.map(({ label, icon, path }) => (
+            <li key={path}>
+              <NavLink to={path} end aria-label={label} title={label} className={itemClass}>
+                <Icon icon={icon} width={22} height={22} />
+              </NavLink>
+            </li>
+          ))}
+        </ul>
       </nav>
-      
-      <div className="mt-auto pt-6 border-t border-slate-100">
-        <Link 
-          to="/" 
-          className="flex items-center gap-4 px-4 py-3 rounded-xl transition-colors font-medium text-slate-500 hover:bg-slate-50 hover:text-slate-900"
-        >
-          <Icon icon="mdi:home-outline" className="w-6 h-6 text-slate-400" />
-          Back to Home
-        </Link>
-      </div>
-    </div>
-  );
-};
+
+      <button
+        type="button"
+        aria-label="More options"
+        title="More"
+        className="grid h-11 w-11 cursor-pointer place-items-center rounded-full border-0 bg-purple-700 text-white transition-opacity hover:opacity-90"
+      >
+        <Icon icon="mdi:dots-horizontal" width={20} height={20} />
+      </button>
+    </aside>
+  )
+}
