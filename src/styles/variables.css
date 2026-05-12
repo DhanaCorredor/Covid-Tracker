@@ -37,6 +37,13 @@
   --color-total-active:          #3B82F6; /* azul */
   --color-hover-map1:            #7374C5; /* azul claro de fondo */
 
+  /* Rampa roja del choropleth (Tracker-6) — de menos casos a más casos */
+  --color-map-red-1: #FEE2E2;
+  --color-map-red-2: #FCA5A5;
+  --color-map-red-3: #EF4444;
+  --color-map-red-4: #B70202;
+  --color-map-red-5: #7F1D1D;
+
   --color-text-primary:   #0F172A; /* neutral-900 */
   --color-text-secondary: #64748B; /* neutral-500 */
 
