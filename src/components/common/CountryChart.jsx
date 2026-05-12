@@ -9,7 +9,7 @@ import {
   YAxis,
 } from 'recharts'
 import { useHistoricalData } from '../../hooks/useHistoricalData'
-import { SERIES } from '../../constants/historicalChart'
+import { SERIES, DEFAULT_HISTORY_DAYS } from '../../constants/historicalChart'
 
 const compactFormatter = new Intl.NumberFormat('en', {
   notation: 'compact',
@@ -51,7 +51,7 @@ function CustomTooltip({ active, payload, label }) {
 
 export function CountryChart({
   country,
-  days = 1400,
+  days = DEFAULT_HISTORY_DAYS,
   showTitle = true,
   metric = 'all',
   fillHeight = false,

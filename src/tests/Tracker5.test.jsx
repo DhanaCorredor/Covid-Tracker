@@ -19,9 +19,9 @@ describe('Tracker5 — filtro de métrica', () => {
     render(<Tracker5 />)
 
     // 1) Buscamos el <select> por su aria-label
-    const filtro = screen.getByLabelText('Filtrar por métrica')
+    const filtro = screen.getByLabelText('Filter by metric')
 
-    // 2) Simulamos que el usuario selecciona "Casos"
+    // 2) Simulamos que el usuario selecciona "Cases"
     //    (su value en METRIC_FILTER_OPTIONS es 'confirmed')
     await user.selectOptions(filtro, 'confirmed')
 

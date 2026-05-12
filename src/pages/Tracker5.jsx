@@ -14,7 +14,7 @@ export function Tracker5() {
           value={metric}
           onChange={setMetric}
           options={METRIC_FILTER_OPTIONS}
-          ariaLabel="Filtrar por métrica"
+          ariaLabel="Filter by metric"
           className="md:max-w-60"
         />
       </FilterBar>
