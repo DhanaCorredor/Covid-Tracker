@@ -5,8 +5,10 @@ const CardCountry = ({ flagUrl, countryName, totalCases }) => {
     return (
         <div className="card-country-container">
             <img src={flagUrl} alt={countryName} className="country-flag" />
-            <h3 className="country-name">{countryName}</h3>
-            <p className="country-total-cases">{totalCases}</p>
+            <div className="country-content">
+                <h3 className="country-name">{countryName}</h3>
+                <p className="country-total-cases">{totalCases}</p>
+            </div>
         </div>
     )
 }
@@ -35,22 +37,77 @@ export const TopTenCountries = () => {
         return <h2>Loading...</h2>
     }
 
+    const sortTopTen = (data, metric) =>
+        [...(data ?? [])]
+            .sort((a, b) => (b[metric] ?? 0) - (a[metric] ?? 0))
+            .slice(0, 10)
+
+    const topCases = sortTopTen(countries, 'cases')
+    const topTodayCases = sortTopTen(countries, 'todayCases')
+    const topDeaths = sortTopTen(countries, 'deaths')
+    const topTodayDeaths = sortTopTen(countries, 'todayDeaths')
+    const topActive = sortTopTen(countries, 'active')
+    const topRecovered = sortTopTen(countries, 'recovered')
+
     return (
         <div className="top-10-container">
-            <h2 className="top-10-title">Total Cases                 </h2>
-            <h2>Today Cases</h2>
-            <h2>Today Deaths</h2>
-            <h2>Today deaths</h2>
-            <h2>Top active </h2>
-            <h2>Top Recovered</h2>
-            <div className="top-10-list">
-                {countries.map((country) => (
-                    <CardCountry key={country.country}
-                        flagUrl={country.countryInfo.flag}
-                        countryName={country.country}
-                        totalCases={country.cases} />
-                ))
-                }
+            <div className="top-10-header-row">
+                <h2>Total Cases</h2>
+                <h2>Today Cases</h2>
+                <h2>Deaths</h2>
+                <h2>Today Deaths</h2>
+                <h2>Active</h2>
+                <h2>Recovered</h2>
+            </div>
+            <div className="top-10-columns">
+                <div className="top-10-column">
+                    {topCases.map((country) => (
+                        <CardCountry key={`cases-${country.country}`}
+                            flagUrl={country.countryInfo.flag}
+                            countryName={country.country}
+                            totalCases={country.cases} />
+                    ))}
+                </div>
+                <div className="top-10-column">
+                    {topTodayCases.map((country) => (
+                        <CardCountry key={`today-cases-${country.country}`}
+                            flagUrl={country.countryInfo.flag}
+                            countryName={country.country}
+                            totalCases={country.todayCases} />
+                    ))}
+                </div>
+                <div className="top-10-column">
+                    {topDeaths.map((country) => (
+                        <CardCountry key={`deaths-${country.country}`}
+                            flagUrl={country.countryInfo.flag}
+                            countryName={country.country}
+                            totalCases={country.deaths} />
+                    ))}
+                </div>
+                <div className="top-10-column">
+                    {topTodayDeaths.map((country) => (
+                        <CardCountry key={`today-deaths-${country.country}`}
+                            flagUrl={country.countryInfo.flag}
+                            countryName={country.country}
+                            totalCases={country.todayDeaths} />
+                    ))}
+                </div>
+                <div className="top-10-column">
+                    {topActive.map((country) => (
+                        <CardCountry key={`active-${country.country}`}
+                            flagUrl={country.countryInfo.flag}
+                            countryName={country.country}
+                            totalCases={country.active} />
+                    ))}
+                </div>
+                <div className="top-10-column">
+                    {topRecovered.map((country) => (
+                        <CardCountry key={`recovered-${country.country}`}
+                            flagUrl={country.countryInfo.flag}
+                            countryName={country.country}
+                            totalCases={country.recovered} />
+                    ))}
+                </div>
             </div>
         </div>
     )
