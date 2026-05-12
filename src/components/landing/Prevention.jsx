@@ -69,7 +69,6 @@ export default function Prevention() {
         </div>
         </div>
       </div>
-
       <div className="w-full bg-white py-24 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 md:px-8 text-center">
           <span className="text-slate-500 font-bold uppercase tracking-widest text-sm mb-4 block">
