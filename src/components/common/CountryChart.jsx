@@ -9,7 +9,7 @@ import {
   YAxis,
 } from 'recharts'
 import { useHistoricalData } from '../../hooks/useHistoricalData'
-import { SERIES } from '../../constants/historicalChart'
+import { SERIES, DEFAULT_HISTORY_DAYS, DEFAULT_METRIC } from '../../constants/historicalChart'
 
 const compactFormatter = new Intl.NumberFormat('en', {
   notation: 'compact',
@@ -25,8 +25,12 @@ function formatTickDate(d) {
 
 function buildSeries(timeline) {
   if (!timeline) return []
-  const dates = Object.keys(timeline.cases ?? {})
-  return dates.map((date) => ({
+  const dates = new Set([
+    ...Object.keys(timeline.cases ?? {}),
+    ...Object.keys(timeline.deaths ?? {}),
+    ...Object.keys(timeline.recovered ?? {}),
+  ])
+  return [...dates].map((date) => ({
     date,
     confirmed: timeline.cases?.[date] ?? 0,
     deaths: timeline.deaths?.[date] ?? 0,
@@ -51,15 +55,15 @@ function CustomTooltip({ active, payload, label }) {
 
 export function CountryChart({
   country,
-  days = 1400,
+  days = DEFAULT_HISTORY_DAYS,
   showTitle = true,
-  metric = 'all',
+  metric = DEFAULT_METRIC,
   fillHeight = false,
 }) {
   const { data, loading, error } = useHistoricalData(country, days)
   const series = useMemo(() => buildSeries(data?.timeline), [data])
   const visibleSeries = useMemo(
-    () => (metric === 'all' ? SERIES : SERIES.filter((s) => s.key === metric)),
+    () => (metric === DEFAULT_METRIC ? SERIES : SERIES.filter((s) => s.key === metric)),
     [metric],
   )
 

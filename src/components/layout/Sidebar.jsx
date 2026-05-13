@@ -14,7 +14,7 @@ export const Sidebar = () => {
       aria-label="Main navigation"
       className="flex md:w-22 min-h-svh flex-col items-center gap-1.5 bg-neutral-100 py-4.5 box-border"
     >
-      <Link to="/dashboard" aria-label="Covid Tracker — go to dashboard" className="grid h-11 w-11 place-items-center">
+      <Link to="/" aria-label="Covid Tracker — go to home" className="grid h-11 w-11 place-items-center">
         <img src="/images/coronavirus.png" alt="Covid Tracker" className="icon-sidebar block h-8 w-8 object-contain" />
       </Link>
 
@@ -30,14 +30,13 @@ export const Sidebar = () => {
         </ul>
       </nav>
 
-      <button
-        type="button"
-        aria-label="More options"
+      <span
+        aria-hidden="true"
         title="More"
-        className="grid h-11 w-11 cursor-pointer place-items-center rounded-full border-0 bg-purple-700 text-white transition-opacity hover:opacity-90"
+        className="grid h-11 w-11 cursor-default place-items-center rounded-full bg-purple-700 text-neutral-0"
       >
         <Icon icon="mdi:dots-horizontal" width={20} height={20} />
-      </button>
+      </span>
     </aside>
   )
 }
