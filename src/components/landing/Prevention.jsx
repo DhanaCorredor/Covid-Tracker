@@ -1,4 +1,4 @@
-import './Prevention.css';
+import './prevention.css';
 import { PreventionCard } from './PreventionCard';
 import { preventionData } from '../../constants/landingData';
 
