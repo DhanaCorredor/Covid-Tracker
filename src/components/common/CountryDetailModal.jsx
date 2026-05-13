@@ -1,5 +1,6 @@
 import { Modal } from './Modal'
 import { CountryChart } from './CountryChart'
+import { ErrorState } from './ErrorState'
 import { useCountry } from '../../hooks/useCountry'
 import { formatNumber } from '../../utils/format'
 
@@ -34,7 +35,7 @@ const StatColumn = ({ title, data, loading }) => {
 }
 
 export const CountryDetailModal = ({ country, isOpen, onClose }) => {
-  const { data, loading, error } = useCountry(isOpen ? country : null)
+  const { data, loading, error, refetch } = useCountry(isOpen ? country : null)
 
   const todayData = {
     cases:     data?.todayCases,
@@ -45,14 +46,17 @@ export const CountryDetailModal = ({ country, isOpen, onClose }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} title={country ?? ''}>
       <div className="px-lg py-md flex flex-col gap-sm">
-        <CountryChart country={country} days={1400} showTitle={false} />
-
-        {error && <p className="text-status-cases text-body-sm">{error}</p>}
-
-        <div className="grid grid-cols-2 gap-lg">
-          <StatColumn title="New"   data={todayData} loading={loading} />
-          <StatColumn title="Total" data={data}      loading={loading} />
-        </div>
+        {error ? (
+          <ErrorState message={error} onRetry={refetch} />
+        ) : (
+          <>
+            <CountryChart country={country} days={1400} showTitle={false} />
+            <div className="grid grid-cols-2 gap-lg">
+              <StatColumn title="New"   data={todayData} loading={loading} />
+              <StatColumn title="Total" data={data}      loading={loading} />
+            </div>
+          </>
+        )}
       </div>
     </Modal>
   )

@@ -1,4 +1,60 @@
 import { Component } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { Icon } from '@iconify/react'
+
+function ErrorFallback({ message, onRetry }) {
+  const navigate = useNavigate()
+  return (
+    <div className="min-h-screen w-full flex items-center justify-center bg-bg-dashboard p-lg">
+      <div
+        role="alert"
+        className="w-full max-w-130 rounded-xl border border-border-default bg-neutral-0 shadow-sm p-2xl flex flex-col items-center gap-lg text-center"
+      >
+        <div className="flex items-center justify-center w-24 h-24 rounded-full bg-purple-50">
+          <Icon icon="mdi:virus-off-outline" width={56} height={56} className="text-purple-700" />
+        </div>
+
+        <span className="inline-flex items-center gap-xs px-md py-xs rounded-full bg-status-cases-bg text-status-cases text-label-sm font-semibold">
+          <Icon icon="mdi:alert-circle-outline" width={14} height={14} />
+          Something went wrong
+        </span>
+
+        <div className="flex flex-col gap-sm">
+          <h2 className="text-heading-xl font-semibold text-text-primary">
+            Oops! Looks like we lost <span className="text-purple-700">track</span>
+          </h2>
+          <p className="text-body-md text-text-secondary">
+            Something didn't go as expected while loading the data. Try again or go back to the home page to keep exploring the tracker.
+          </p>
+          {message && (
+            <p className="text-label-sm text-text-secondary italic">
+              {message}
+            </p>
+          )}
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-md w-full sm:w-auto">
+          <button
+            type="button"
+            className="inline-flex items-center justify-center gap-xs px-lg py-sm rounded-md bg-purple-700 text-neutral-0 font-semibold hover:bg-purple-900 transition-colors cursor-pointer"
+            onClick={onRetry}
+          >
+            <Icon icon="mdi:refresh" width={18} height={18} />
+            Retry
+          </button>
+          <button
+            type="button"
+            className="inline-flex items-center justify-center gap-xs px-lg py-sm rounded-md border border-border-default text-text-primary font-semibold hover:bg-purple-50 transition-colors cursor-pointer"
+            onClick={() => navigate('/')}
+          >
+            <Icon icon="mdi:home-outline" width={18} height={18} />
+            Back to home
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 export class ErrorBoundary extends Component {
   constructor(props) {
@@ -7,22 +63,16 @@ export class ErrorBoundary extends Component {
   }
 
   static getDerivedStateFromError(err) {
-    return { hasError: true, message: err.message || 'Error inesperado' }
+    return { hasError: true, message: err.message || 'Unexpected error' }
   }
 
   render() {
     if (this.state.hasError) {
       return this.props.fallback ?? (
-        <div className="flex flex-col items-center justify-center h-screen gap-lg">
-          <p className="text-heading-md font-semibold text-status-cases">Algo salió mal</p>
-          <p className="text-body-md text-neutral-500">{this.state.message}</p>
-          <button
-            className="px-lg py-sm bg-purple-500 text-neutral-0 rounded-md"
-            onClick={() => this.setState({ hasError: false, message: '' })}
-          >
-            Reintentar
-          </button>
-        </div>
+        <ErrorFallback
+          message={this.state.message}
+          onRetry={() => this.setState({ hasError: false, message: '' })}
+        />
       )
     }
 
