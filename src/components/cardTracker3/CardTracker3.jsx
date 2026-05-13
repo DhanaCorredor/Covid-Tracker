@@ -25,7 +25,7 @@
         const sortTopTen = (data, metric) =>
             [...(data ?? [])]
                 .sort((a, b) => (b[metric] ?? 0) - (a[metric] ?? 0))
-                .slice(0, 15);
+                .slice(0, 10);
 
         const topCases = sortTopTen(countries, 'cases')
         const topTodayCases = sortTopTen(countries, 'todayCases')
