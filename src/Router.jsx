@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Tracker3 } from "./pages/Tracker3";
 import { UnderConstruction } from "./components/common/UnderConstruction";
 import { DashboardLayout } from "./pages/DashboardLayout";
@@ -6,12 +6,13 @@ import { Tracker1 } from "./pages/Tracker1";
 import { Tracker2 } from "./pages/Tracker2";
 import { Tracker5 } from "./pages/Tracker5";
 import { Tracker6 } from "./pages/Tracker6";
+import { LandingPage } from "./pages/LandingPage";
 import { Tracker4 } from "./pages/Tracker4";
 
 export const Router = () => {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/dashboard" replace />} />
+      <Route path="/" element={<LandingPage />} />
       <Route path="/dashboard" element={<DashboardLayout />}>
         {/* Aqui las reemplazo por las páginas reales :D */}
         <Route index            element={<Tracker1 />} />  {/* → <DashboardPage /> */}
