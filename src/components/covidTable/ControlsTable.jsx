@@ -1,29 +1,34 @@
-
+import { useState } from "react";
+import { Select } from '../common/Select'
 
 export const ControlsTable = ({ table, globalFilter, setGlobalFilter }) => {
     return (
-        <div className='flex items-center justify-between w-full'>
-            <div className="flex items-center gap-2 text-body-sm text-text-secondary">
-                Show
-                <select
+        <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-2'>
+
+            <div className="flex items-center gap-2 gap: 'var(--spacing-sm)', color: 'var(--color-text-secondary)">
+
+                <h4 className="text-gray-600 text-body-sm">Show</h4>
+
+
+                <Select
                     value={table.getState().pagination.pageSize}
-                    onChange={e => table.setPageSize(Number(e.target.value))} 
-                    className="border text-center w-15 h-8 border-border-strong"
-                >
-                    {[10, 25, 50].map(pageSize => (
-                        <option key={pageSize} value={pageSize}>{pageSize}</option>
-                    ))}
-                </select>
-                entries
+                    onChange={(value) => {
+                        table.setPageSize(Number(value));
+                    }}
+                    options={[10, 25, 50, 100]}
+                    className=" 
+                    border border-neutral-100 "
+                />
+                <h4 className="text-gray-600 text-body-sm">entries</h4>
             </div>
 
             <div className="flex items-center gap-2">
                 <label className="text-body-sm text-text-secondary">Search:</label>
                 <input
                     type="search"
-                    value={globalFilter ?? ""}  
-                    onChange={e => setGlobalFilter(e.target.value)} 
-                    className="border border-border-strong w-30 h-10"
+                    value={globalFilter ?? ""}
+                    onChange={e => setGlobalFilter(e.target.value)}
+                    className="border border-border-strong w-40 h-10"
                 />
             </div>
         </div>

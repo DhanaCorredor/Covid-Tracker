@@ -5,6 +5,7 @@ import { Select } from "../components/common/Select";
 import { FilterBar } from "../components/common/FilterBar";
 import { WorldMap } from "../components/common/WorldMap";
 import { CountryDetailModal } from "../components/common/CountryDetailModal";
+import { ErrorState } from "../components/common/ErrorState";
 import { useCountry } from "../hooks/useCountry";
 import { useCountries } from "../hooks/useCountries";
 import { useGlobalTotals } from "../hooks/useGlobalTotals";
@@ -21,21 +22,19 @@ export const Tracker1 = () => {
     data: countryData,
     loading: loadingCountry,
     error: errorCountry,
+    refetch: refetchCountry,
   } = useCountry(country);
   const {
     data: globalData,
     loading: loadingGlobal,
     error: errorGlobal,
+    refetch: refetchGlobal,
   } = useGlobalTotals();
   const { data: countries } = useCountries();
 
   const countryOptions = (countries ?? [])
     .map((c) => ({ value: c.country, label: c.country }))
     .sort((a, b) => a.label.localeCompare(b.label));
-
-  if (errorCountry) {
-    return <p className="text-status-cases">{errorCountry}</p>;
-  }
 
   return (
     <div>
@@ -56,15 +55,21 @@ export const Tracker1 = () => {
       </FilterBar>
 
       <div className="flex flex-col md:flex-row gap-xl mt-lg">
-        <div className="grid grid-cols-2 gap-lg md:flex-1 xl:basis-2/5 h-fit">
-          {DASHBOARD_METRICS.map(({ key, title, variant }) => (
-            <MetricCard
-              key={key}
-              title={title}
-              value={loadingCountry ? "" : countryData?.[key]}
-              variant={variant}
-            />
-          ))}
+        <div className="md:flex-1 xl:basis-2/5 h-fit">
+          {errorCountry ? (
+            <ErrorState message={errorCountry} onRetry={refetchCountry} />
+          ) : (
+            <div className="grid grid-cols-2 gap-lg">
+              {DASHBOARD_METRICS.map(({ key, title, variant }) => (
+                <MetricCard
+                  key={key}
+                  title={title}
+                  value={loadingCountry ? "" : countryData?.[key]}
+                  variant={variant}
+                />
+              ))}
+            </div>
+          )}
         </div>
         <div className="flex-1 min-h-60 md:min-h-95 xl:basis-3/5">
           <WorldMap
@@ -83,7 +88,9 @@ export const Tracker1 = () => {
       />
 
       {errorGlobal ? (
-        <p className="text-status-cases">{errorGlobal}</p>
+        <div className="mt-xl">
+          <ErrorState message={errorGlobal} onRetry={refetchGlobal} />
+        </div>
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-5 gap-0.5 mt-xl">
           {GLOBAL_METRICS.map(({ key, title, variant, staticValue }) => (

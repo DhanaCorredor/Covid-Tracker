@@ -1,17 +1,17 @@
 const STATUS_MESSAGES = {
-  400: 'Solicitud incorrecta',
-  404: 'No encontrado',
-  429: 'Demasiadas peticiones, espera un momento',
-  500: 'Error interno del servidor, intenta más tarde',
-  503: 'Servicio temporalmente no disponible',
+  400: 'Bad request',
+  404: 'Not found',
+  429: 'Too many requests, please wait a moment',
+  500: 'Internal server error, please try again later',
+  503: 'Service temporarily unavailable',
 }
 
 export function parseApiError(err) {
   if (err.response) {
-    return STATUS_MESSAGES[err.response.status] ?? `Error del servidor: ${err.response.status}`
+    return STATUS_MESSAGES[err.response.status] ?? `Server error: ${err.response.status}`
   }
   if (err.request) {
-    return 'Sin conexión: no se pudo contactar con el servidor'
+    return 'No connection: could not reach the server'
   }
-  return err.message || 'Error desconocido'
+  return err.message || 'Unknown error'
 }
