@@ -91,7 +91,7 @@ export function CountryChart({
         {loading && <p className="text-body-md text-text-secondary">Loading…</p>}
         {error && <p className="text-body-md text-status-cases">{error.message}</p>}
         {!loading && !error && series.length > 0 && (
-          <ResponsiveContainer width="100%" height="100%">
+          <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
             <LineChart data={series} margin={{ top: 8, right: 12, bottom: 8, left: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
               <XAxis
