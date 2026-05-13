@@ -8,7 +8,9 @@ export const SERIES = [
   { key: 'recovered', label: 'Recovered', color: '#22c55e' },
 ]
 
+export const DEFAULT_METRIC = 'all'
+
 export const METRIC_FILTER_OPTIONS = [
-  { value: 'all', label: 'All metrics' },
+  { value: DEFAULT_METRIC, label: 'All metrics' },
   ...SERIES.map((s) => ({ value: s.key, label: s.label })),
 ]
