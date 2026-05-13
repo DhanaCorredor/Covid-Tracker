@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import './Symptoms.css';
+import './symptoms.css';
 import { SymptomCard } from './SymptomCard';
 import { symptomsList } from '../../constants/landingData';
 
