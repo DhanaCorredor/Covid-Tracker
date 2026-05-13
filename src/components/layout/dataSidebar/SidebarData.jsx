@@ -32,7 +32,7 @@ export const SidebarData = () => {
 
         <ul className="flex flex-col w-full">
           {loadingCountries ? (
-            <li className="p-4 text-center text-gray-500 italic">Cargando países...</li>
+            <li className="p-4 text-center text-gray-500 italic">Loading countries...</li>
           ) : (
             top10.map((country) => (
               <li key={country.country}>

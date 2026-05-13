@@ -19,7 +19,7 @@ export const Pagination = ({ table }) => {
     const btnBase = "flex items-center justify-center min-w-10 h-8 px-2 text-body-sm cursor-pointer transition-colors ";
 
     return (
-        <div className="flex items-center justify-between w-full mt-4 flex-wrap gap-3">
+        <div className="flex flex-col items-start sm:flex-row sm:items-center sm:justify-between w-full mt-4 gap-2">
             <h3 className="text-body-sm text-neutral-500">
                 Showing {from} to {to} of {totalRows} entries
             </h3>
