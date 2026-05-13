@@ -11,11 +11,7 @@ import { Tracker6 } from "./pages/Tracker6";
 export const Router = () => {
   return (
     <Routes>
-<<<<<<< HEAD
-      <Route path="/" element={<LandingPage/>} />
-=======
       <Route path="/" element={<Navigate to="/dashboard" replace />} />
->>>>>>> 09ebb51807a95f248b8f7e3064a67b0d77a05634
       <Route path="/dashboard" element={<DashboardLayout />}>
         {/* Aqui las reemplazo por las páginas reales :D */}
         <Route index            element={<Tracker1 />} />  {/* → <DashboardPage /> */}

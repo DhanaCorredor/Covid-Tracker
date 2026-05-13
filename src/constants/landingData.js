@@ -1,6 +1,6 @@
 export const symptomsList = [
   {
-    imgSrc: '/images/coronavirus.png',
+    imgSrc: '/images/carousel-01.png',
     title: 'Aches and pains',
     desc: 'Fever is a key symptom, experts say. Don\'t fixate on a number, but know it\'s really not a fever until your temperature reaches at least 37.8°C.'
   },
@@ -15,19 +15,19 @@ export const symptomsList = [
     desc: 'Older people, and those with underlying medical problems like high blood pressure, heart and lung problems, diabetes, or cancer.'
   },
   {
-    imgSrc: '/images/carousel-01.png',
+    imgSrc: '/images/coronavirus.png',
     title: 'Persistent cough',
     desc: 'A dry, persistent cough is a very common early indicator. It usually starts mildly and becomes progressively more severe over the days.'
   }
 ];
 
 export const preventionData = [
-  { imgSrc: '/images/carousel-01.png', imgAlt: 'Woman sneezing', title: 'Close Contact', text: 'Fever is a key symptom, experts say. Don\'t fixate on a number, but know it\'s really not a fever until your temperature reaches at least 37.8°C.' },
-  { imgSrc: '/images/icon5.png', imgAlt: '', title: 'Social Distancing', text: 'Hands touch many surfaces and can pick up viruses. Once contaminated, hands can transfer the virus to your eyes, nose or mouth and make you sick.' },
-  { imgSrc: '/images/icon6.png', imgAlt: '', title: 'Clean and Disinfect', text: 'Fever is a key symptom, experts say. Don\'t fixate on a number, but know it\'s really not a fever until your temperature reaches at least 37.8°C.' },
-  { imgSrc: '/images/wash-01.webp', imgAlt: '', title: 'Wash Your Hands', text: 'Maintain at least 1 meter distance between yourself and anyone who is coughing or sneezing. If you are too close, you have a chance of getting infected.', imgClass: "prevention-icon bg-white-icon" },
-  { imgSrc: '/images/carousel-03.svg', imgAlt: 'Lungs', title: 'Respiratory Hygiene', text: 'Maintain good respiratory hygiene by covering your mouth and nose with your bent elbow or tissue when you cough or sneeze.' },
-  { imgSrc: '/images/carousel-02.svg', imgAlt: '', title: 'Wear a Mask', text: 'Always wear a mask when in public places or in close contact with other people to protect yourself and those around you.' }
+  { imgSrc: '/images/icon2.png', imgAlt: 'Woman sneezing', title: 'Personal Contact', text: 'Fever is a key symptom, experts say. Don\'t fixate on a number, but know it\'s really not a fever until your temperature reaches at least 37.8°C.' },
+  { imgSrc: '/images/icon5.png', imgAlt: '', title: 'Social distancing', text: 'Hands touch many surfaces and can pick up viruses. Once contaminated, hands can transfer the virus to your eyes, nose or mouth and make you sick.' },
+  { imgSrc: '/images/icon6.png', imgAlt: '', title: 'Clean And Disinfect', text: 'Fever is a key symptom, experts say. Don\'t fixate on a number, but know it\'s really not a fever until your temperature reaches at least 37.8°C.' },
+  { imgSrc: '/images/icon4.png', imgAlt: '', title: 'Wash hands', text: 'Maintain at least 1 meter distance between yourself and anyone who is coughing or sneezing. If you are too close, you have a chance of getting infected.' },
+  { imgSrc: '/images/carousel-03.svg', imgAlt: 'Lungs', title: 'Respiratory hygiene', text: 'Maintain good respiratory hygiene by covering your mouth and nose with your bent elbow or tissue when you cough or sneeze.' },
+  { imgSrc: '/images/wash-01.webp', imgAlt: '', title: 'Wear a Facemask', text: 'Always wear a mask when in public places or in close contact with other people to protect yourself and those around you.' }
 ];
 
 export const allFaqs = [

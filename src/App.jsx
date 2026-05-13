@@ -1,9 +1,9 @@
-import { Router } from "./Router";
+import { LandingPage } from "./pages/LandingPage";
 
 function App() {
   return (
     <>
-     <Router/>
+      <LandingPage />
     </>
   );
 }
