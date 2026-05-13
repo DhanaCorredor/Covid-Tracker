@@ -18,9 +18,9 @@ export const Header = () => {
             <Link to="/" className="transition-colors duration-300 hover:text-purple-300">Prevention</Link>
             <Link to="/" className="transition-colors duration-300 hover:text-purple-300">Quarantine</Link>
             <Link to="/" className="transition-colors duration-300 hover:text-purple-300">Contact</Link>
-            <a href="https://covid-tracker-olive.vercel.app/dashboard" target="_blank" rel="noopener noreferrer" className="bg-purple-500 hover:bg-purple-700 text-neutral-0 px-6 py-2 rounded-full font-bold transition-all shadow-lg hover:shadow-xl">
+            <Link to="/dashboard" className="bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-700 hover:to-purple-900 text-neutral-0 px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-xl flex items-center gap-2 transform hover:-translate-y-1">
               Dashboard
-            </a>
+            </Link>
           </div>
         </nav>
 
