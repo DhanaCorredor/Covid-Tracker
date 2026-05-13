@@ -19,7 +19,7 @@ export const Select = ({ value, onChange, options, ariaLabel, className = '' }) 
         value={value}
         onChange={handleChange}
         aria-label={ariaLabel}
-        className="w-full appearance-none bg-white border border-border-default rounded-md text-body-md text-text-primary pl-md pr-2xl py-sm cursor-pointer focus:outline-none"
+        className="w-full appearance-none bg-neutral-0 border border-border-default rounded-md text-body-md text-text-primary pl-md pr-2xl py-sm cursor-pointer focus:outline-none"
       >
         {normalized.map(({ value: v, label }) => (
           <option key={String(v)} value={String(v)}>

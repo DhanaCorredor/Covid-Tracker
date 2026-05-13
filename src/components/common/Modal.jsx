@@ -1,14 +1,16 @@
-import { useEffect, useId } from 'react'
+import { useEffect, useId, useRef } from 'react'
 import { createPortal } from 'react-dom'
 import { Icon } from '@iconify/react'
 
 export const Modal = ({ isOpen, onClose, title, children }) => {
   const titleId = useId()
+  const onCloseRef = useRef(onClose)
+  useEffect(() => { onCloseRef.current = onClose })
 
   useEffect(() => {
     if (!isOpen) return
     const handleKey = (e) => {
-      if (e.key === 'Escape') onClose?.()
+      if (e.key === 'Escape') onCloseRef.current?.()
     }
     document.addEventListener('keydown', handleKey)
     const prevOverflow = document.body.style.overflow
@@ -17,7 +19,7 @@ export const Modal = ({ isOpen, onClose, title, children }) => {
       document.removeEventListener('keydown', handleKey)
       document.body.style.overflow = prevOverflow
     }
-  }, [isOpen, onClose])
+  }, [isOpen])
 
   if (!isOpen) return null
 

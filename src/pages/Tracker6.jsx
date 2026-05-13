@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { WorldMap } from "../components/common/WorldMap";
 import { MetricCard } from "../components/common/MetricCard";
+import { ErrorState } from "../components/common/ErrorState";
 import { useCountries } from "../hooks/useCountries";
 import { useCountry } from "../hooks/useCountry";
 import { TRACKER6_METRICS } from "../constants/dashboardMetrics";
 
-// Bucketea log10(cases) en 5 tramos → 5 tonos de rojo.
-// Log evita que USA/India aplasten el resto del rango.
 const RED_SHADES = [
   "var(--color-map-red-1)",
   "var(--color-map-red-2)",
@@ -16,7 +15,7 @@ const RED_SHADES = [
 ];
 function casesToRed(cases) {
   if (!cases || cases < 1) return RED_SHADES[0];
-  const t = Math.min(Math.log10(cases) / 8, 1); // 10^8 ≈ 100M como tope
+  const t = Math.min(Math.log10(cases) / 8, 1);
   const idx = Math.min(
     Math.floor(t * RED_SHADES.length),
     RED_SHADES.length - 1,
@@ -43,27 +42,43 @@ const CountryTooltipRich = ({ datum }) => (
 
 export const Tracker6 = () => {
   const [selectedCountry, setSelectedCountry] = useState("USA");
-  const { data: countries } = useCountries();
-  const { data: countryData, loading } = useCountry(selectedCountry);
+  const {
+    data: countries,
+    error: errorCountries,
+    refetch: refetchCountries,
+  } = useCountries();
+  const {
+    data: countryData,
+    loading,
+    error: errorCountry,
+    refetch: refetchCountry,
+  } = useCountry(selectedCountry);
 
   return (
     <div className="flex flex-col md:flex-row gap-lg">
-      {/* Columna central: mapa */}
       <div className="flex-1 bg-neutral-0 rounded-sm shadow-sm basis-3/5">
         <h3 className="text-heading-lg p-md mb-md border-b border-neutral-200 ">
           World
         </h3>
 
-        <WorldMap
-          data={countries ?? []}
-          getFill={(_, datum) => casesToRed(datum?.cases)}
-          tooltipContent={(c) => <CountryTooltipRich datum={c} />}
-          onCountryClick={(c) => setSelectedCountry(c.country)}
-          zoomButtonClassName="bg-status-death hover:bg-hover-map1 text-neutral-0"
-        />
+        {errorCountries ? (
+          <div className="p-lg">
+            <ErrorState
+              message={errorCountries}
+              onRetry={refetchCountries}
+            />
+          </div>
+        ) : (
+          <WorldMap
+            data={countries ?? []}
+            getFill={(_, datum) => casesToRed(datum?.cases)}
+            tooltipContent={(c) => <CountryTooltipRich datum={c} />}
+            onCountryClick={(c) => setSelectedCountry(c.country)}
+            zoomButtonClassName="bg-status-death hover:bg-hover-map1 text-neutral-0"
+          />
+        )}
       </div>
 
-      {/* Columna derecha: header + 8 cards */}
       <div className="flex flex-col gap-md basis-2/5">
         <div className="flex items-center gap-sm">
           <img
@@ -76,16 +91,20 @@ export const Tracker6 = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 gap-md">
-          {TRACKER6_METRICS.map(({ key, title, variant }) => (
-            <MetricCard
-              key={key}
-              title={title}
-              value={loading ? "" : countryData?.[key]}
-              variant={variant}
-            />
-          ))}
-        </div>
+        {errorCountry ? (
+          <ErrorState message={errorCountry} onRetry={refetchCountry} />
+        ) : (
+          <div className="grid grid-cols-2 gap-md">
+            {TRACKER6_METRICS.map(({ key, title, variant }) => (
+              <MetricCard
+                key={key}
+                title={title}
+                value={loading ? "" : countryData?.[key]}
+                variant={variant}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
