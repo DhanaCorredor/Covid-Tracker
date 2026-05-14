@@ -1,4 +1,3 @@
-import React from 'react'
 import './cardTracker3.css'
 import { useCountries } from '../../hooks/useCountries'
 
@@ -65,7 +64,7 @@ export const TopTenCountries = () => {
 
 export const CardTracker3 = () => (
     <div className="containerDateCovid">
-        <h3 className="text-heading-lg font-bold text-gray-800">Top 15 Country wise Covid-19 Updates - Tiles</h3>
+        <h3 className="text-heading-lg font-bold text-gray-800">Top 10 Country wise Covid-19 Updates - Tiles</h3>
         <TopTenCountries />
     </div>
 )
