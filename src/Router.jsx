@@ -14,15 +14,14 @@ export const Router = () => {
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/dashboard" element={<DashboardLayout />}>
-        {/* Aqui las reemplazo por las páginas reales :D */}
-        <Route index            element={<Tracker1 />} />  {/* → <DashboardPage /> */}
-        <Route path="reports"   element={<Tracker2 />} />    {/* → <ReportsPage /> */}
-        <Route path="apps"      element={<Tracker3/>} />       {/* → <AppsPage /> */}
-        <Route path="projects"  element={<Tracker4 />} />   {/* → <ProjectsPage /> */}
-        <Route path="files"     element={<UnderConstruction name="Files" />} />      {/* → <FilesPage /> */}
-        <Route path="analytics" element={<Tracker5 />} />  {/* → <AnalyticsPage /> */}
-        <Route path="world"     element={<Tracker6 />} />      {/* → <WorldPage /> */}
-        <Route path="messages"  element={<UnderConstruction name="Messages" />} />   {/* → <MessagesPage /> */}
+        <Route index            element={<Tracker1 />} />
+        <Route path="reports"   element={<Tracker2 />} />
+        <Route path="apps"      element={<Tracker3/>} />
+        <Route path="projects"  element={<Tracker4 />} />
+        <Route path="files"     element={<UnderConstruction name="Files" />} />
+        <Route path="analytics" element={<Tracker5 />} />
+        <Route path="world"     element={<Tracker6 />} />
+        <Route path="messages"  element={<UnderConstruction name="Messages" />} />
       </Route>
     </Routes>
   );
